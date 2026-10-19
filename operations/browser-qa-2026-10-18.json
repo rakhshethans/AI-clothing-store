@@ -1,0 +1,62 @@
+{
+  "layouts": [
+    {
+      "width": 1440,
+      "scroll": 1440,
+      "searchBottom": 684.4375,
+      "h1Height": 228.46875,
+      "h1LineHeight": 114.24
+    },
+    {
+      "width": 1024,
+      "scroll": 1024,
+      "searchBottom": 598.6875,
+      "h1Height": 169.3125,
+      "h1LineHeight": 84.66
+    },
+    {
+      "width": 768,
+      "scroll": 768,
+      "searchBottom": 621.78125,
+      "h1Height": 169.3125,
+      "h1LineHeight": 84.66
+    },
+    {
+      "width": 390,
+      "scroll": 390,
+      "searchBottom": 476.78125,
+      "h1Height": 97.90625,
+      "h1LineHeight": 48.96
+    },
+    {
+      "width": 360,
+      "scroll": 360,
+      "searchBottom": 459.203125,
+      "h1Height": 97.90625,
+      "h1LineHeight": 48.96
+    },
+    {
+      "width": 320,
+      "scroll": 320,
+      "searchBottom": 545.703125,
+      "h1Height": 146.859375,
+      "h1LineHeight": 48.96
+    }
+  ],
+  "interactions": [
+    "Styling carousel advances without autoplay.",
+    "Category accordion opens the matching filtered catalogue.",
+    "Search, product details, save, and Escape dismissal work.",
+    "Saved item survives reload.",
+    "Planner reports infeasible and feasible delivered budgets.",
+    "Reference rejects wrong type; valid photo previews and removes locally.",
+    "Inspiration opens an outfit detail with sample prices and disclaimer.",
+    "Privacy dialog contains keyboard focus and dismisses with Escape.",
+    "Default motion creates real ScrollTrigger reveals and desktop pinning.",
+    "Reduced motion removes pin spacers and scroll animations.",
+    "Standalone HTML renders without network requests."
+  ],
+  "errors": [],
+  "failed": [],
+  "passed": true
+}
