@@ -1,5 +1,5 @@
-const APP_CACHE='threadline-social-v2';
-const APP_FILES=['/','/index.html','/styles.css','/explore.css','/app.js','/catalog.js','/domain.js','/media.js','/motion.js','/social.js','/social-domain.js','/pwa.js','/vendor/gsap.min.js','/vendor/ScrollTrigger.min.js','/assets/editorial.webp','/assets/feed-editorial.webp','/assets/geist-variable.woff2','/assets/icon-192.png','/assets/icon-512.png','/manifest.webmanifest'];
+const APP_CACHE='threadline-social-v3';
+const APP_FILES=['/','/index.html','/styles.css','/explore.css','/sable.css','/editorial.js','/app.js','/catalog.js','/domain.js','/media.js','/motion.js','/social.js','/social-domain.js','/pwa.js','/assets/editorial.webp','/assets/feed-editorial.webp','/assets/geist-variable.woff2','/assets/icon-192.png','/assets/icon-512.png','/manifest.webmanifest'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(APP_CACHE).then(cache=>cache.addAll(APP_FILES))));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('threadline-')&&k!==APP_CACHE).map(k=>caches.delete(k))))));
 self.addEventListener('fetch',event=>{

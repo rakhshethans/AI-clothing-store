@@ -127,3 +127,39 @@ Editorial assets were converted to WebP without changing dimensions or compositi
 of PNG assets became 391,258 bytes of WebP assets (about 92% smaller). The original PNGs are retained
 under ignored private-data/source-images. Asset URLs, MIME types, bundling and offline cache were
 updated together. All 19 Node checks still pass; a fresh mobile browser render checks the new format.
+
+## SABLE-inspired refinement — 19 October 2026
+
+Saved the owner's full reference brief in design.md and used GPT Taste with the explicit SABLE
+direction overriding random layouts, stock imagery and GSAP. Kept the existing default social feed,
+five app destinations, local posting, saves, photo-specific shopping and budget logic. Applied bone
+#EFEDE8 / ink #101010, Archivo online with local fallback, uppercase wordmark, thin rules, angular
+controls, grayscale editorial demos, exact 1.6-stroke heart and four/two product grids. Product
+illustrations and personal uploads keep their colours. Existing hover rules now require a fine
+pointer and hover capability. Profile exposes the campaign and privacy controls on mobile.
+
+The pre-existing editorial route now holds the larger reference composition: transparent model
+over a lower-z-index Threadline wordmark, categories, season split, service links, campaign pieces,
+offset lookbook, exact lazy cloth.mp4, atelier image and saved-collection CTA. All requested section
+IDs are retained within this route. Actions lead to existing app flows; no checkout, mailing-list
+signup, false SABLE business address, manufacturing figures or invented GSM claims were added.
+The full source CSS/counting code was not provided, so spacing is reconstructed rather than claimed
+as exact. Runtime animation is vanilla JavaScript with observer/listener cleanup, visibility-based
+video pause, manual playback and static reduced-motion states. Legacy GSAP files are no longer loaded.
+
+Verification: all 19 Node tests passed, syntax checks passed, and Chrome inspected the app at 1440,
+1024, 768, 390, 360 and 320px without horizontal overflow. Campaign reflow additionally checked at
+900/899px. Re-exercised likes/follows/saves across reload, per-photo shopping, untagged frames,
+composer file/link/rights validation, persistent publish/delete, local reports/hide/unhide, linked
+piece saves/removal, impossible budgets, privacy reset and offline standalone feed. Touch emulation
+checked neutral hover states, filters, garment saving, privacy dialogs and visible campaign actions.
+Screenshots of the actual local feed, search and shopping sheet were inspected at desktop/mobile.
+Evidence: operations/sable-browser-qa-2026-10-19.json and sable-touch-qa-2026-10-19.json.
+
+Limitation: CDN host DNS failed (ERR_NAME_NOT_RESOLVED / No such host). Upstream asset names were
+verified through GitHub, but external SABLE binary images, cloth playback, Google Archivo and the
+actual Tailwind CDN output could not be visually verified. Browser checks used empty external
+responses to isolate the local app, not substitute photographs. Campaign geometry, direct-child
+model, z-index values, exact URL assignment, lazy video trigger, parallax and reduced-motion states
+were checked; campaign photographic fidelity remains unverified. Main app screenshots use the local
+fallback font and local editorial demo assets. No public deployment was performed.

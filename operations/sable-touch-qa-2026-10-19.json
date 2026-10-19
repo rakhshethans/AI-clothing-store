@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "checks": [
+    "Touch hover state stays neutral",
+    "Filters and product saves work by tap",
+    "Mobile privacy dialog opens and closes",
+    "Editorial product actions are visible without hover"
+  ],
+  "limitation": "Remote media and Google font not verified; external responses isolated."
+}
