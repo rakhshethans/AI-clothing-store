@@ -176,3 +176,18 @@ Verified the refreshed standalone in Chrome at 1440px and 390px and inspected bo
 blue denim and cream layers display in colour. All seven demo photo surfaces, saved-post media
 and an uploaded-image element compute filter:none. No horizontal overflow or browser script errors.
 All 19 Node tests pass. Evidence: operations/post-colour-qa-2026-10-19.json.
+
+## Demo photo sheet crop correction — 19 October 2026
+
+The generated four-photo source is 1254×1254 but is not divided into four equal squares. The
+horizontal seam is at rows 599–600, while the old SVG crops assumed a 627px seam. This exposed
+a strip of the next photograph at the bottom of the first two frames and clipped the next row.
+Replaced the inferred grid with explicit viewBoxes: top frames 627×599 at y=0, bottom frames
+627×654 at y=600, with x=0/627. This excludes the seam and preserves the original full colours.
+Uploaded photos continue using their existing individual image elements. Advanced the app cache
+to v5 to deliver the corrected module to installed previews.
+
+Verified and visually inspected the complete first photo including its lower edge at desktop
+1440px and mobile 390px. The neighbouring image strip is gone. Browser checks confirm all four
+explicit viewBoxes, no horizontal overflow, and working carousel/photo-specific shopping after
+switching frames. All 19 Node tests passed. Evidence: operations/photo-crop-qa-2026-10-19.json.

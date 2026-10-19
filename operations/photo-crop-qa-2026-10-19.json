@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "viewBoxes": [
+    "0 0 627 599",
+    "627 0 627 599",
+    "0 600 627 654",
+    "627 600 627 654",
+    "627 0 627 599",
+    "627 600 627 654",
+    "0 0 627 599"
+  ],
+  "layouts": [
+    1440,
+    390
+  ],
+  "carouselAndPhotoSpecificShopping": true,
+  "errors": []
+}
