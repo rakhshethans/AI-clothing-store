@@ -163,3 +163,16 @@ responses to isolate the local app, not substitute photographs. Campaign geometr
 model, z-index values, exact URL assignment, lazy video trigger, parallax and reduced-motion states
 were checked; campaign photographic fidelity remains unverified. Main app screenshots use the local
 fallback font and local editorial demo assets. No public deployment was performed.
+
+## Post photo colour correction — 19 October 2026
+
+Owner clarified that clothing colours must remain visible in every post. Removed the feed's
+grayscale/contrast filter and explicitly set both SVG-backed demo photos and uploaded images to
+filter:none. This also applies to saved and profile post views using the shared photo slide.
+The separate campaign retains its monochrome reference treatment. Recorded this precedence in
+design.md and advanced the local app cache to v4 so installed previews receive the styling update.
+
+Verified the refreshed standalone in Chrome at 1440px and 390px and inspected both screenshots:
+blue denim and cream layers display in colour. All seven demo photo surfaces, saved-post media
+and an uploaded-image element compute filter:none. No horizontal overflow or browser script errors.
+All 19 Node tests pass. Evidence: operations/post-colour-qa-2026-10-19.json.

@@ -2,6 +2,11 @@
 
 ## Application scope
 
+Owner correction, 19 October 2026: ALL post photographs must display their original colours,
+including demo posts, saved posts and uploaded photo dumps. Do not apply grayscale, desaturation,
+contrast or colour grading to feed photos. Clothing colour is essential shopping information.
+Monochrome image treatment is limited to the separate SABLE campaign/editorial page.
+
 Owner brief received 19 October 2026. This is a visual refinement of the existing mobile social-shopping app. Keep Explore as the initial view; retain Search, Post, Saved, Profile, photo-specific shopping sheets, persistence and budget planning. The existing editorial route is the home for the larger campaign composition. Do not replace the feed with a storefront or introduce checkout without asking the owner.
 
 Apply the supplied bone/ink colours, Archivo typography, precise heart icon, hairline divisions, monochrome campaign photography, restrained motion and mobile-safe controls. GPT Taste is the requested skill; the Sites skill is prohibited. The explicit reference overrides the skill's random layouts, stock imagery, GSAP requirements and font defaults.
@@ -117,7 +122,7 @@ IMPLEMENTATION REQUIREMENTS
 - Bone #EFEDE8 / ink #101010; Archivo when Google Fonts is reachable, local sans fallback offline.
 - 96px sticky blurred desktop navigation; link labels hide below 900px, bottom app tabs remain usable.
 - Full-width editorial campaign is isolated to the existing editorial destination; wordmark is behind the direct-child transparent model.
-- Exact SVG heart, 1.6 stroke; editorial grayscale/contrast; product/user colour preserved.
+- Exact SVG heart, 1.6 stroke; grayscale/contrast only on the separate campaign; all post and product colours preserved.
 - Four product columns desktop, two mobile; three category columns desktop, one mobile.
 - Vanilla motion, lazy exact cloth video, cleanup on route change, reduced-motion static states.
 - Inspect desktop/mobile screenshots and exercise saves, search, carousel sheets and composer; report remote-media failures explicitly.

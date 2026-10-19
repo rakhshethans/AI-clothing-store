@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "layouts": [
+    {
+      "width": 1440,
+      "postMedia": 7,
+      "allFiltersNone": true
+    },
+    {
+      "width": 390,
+      "postMedia": 7,
+      "allFiltersNone": true
+    }
+  ],
+  "errors": [],
+  "savedPostColours": true,
+  "uploadedImageFilter": "none"
+}
