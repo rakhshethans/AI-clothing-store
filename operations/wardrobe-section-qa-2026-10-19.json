@@ -1,0 +1,19 @@
+{
+  "layouts": [
+    1440,
+    1024,
+    768,
+    390,
+    360,
+    320
+  ],
+  "flows": [
+    "A version-1 wardrobe migrates without losing existing clothes; 16 labelled sample pieces are seeded exactly once.",
+    "Sample clothes generate multiple everyday, smart and cold-weather combinations, which can be saved.",
+    "Removing samples also removes dependent sample looks; personal clothing survives and samples do not return on reload.",
+    "Restoring the collection is idempotent and preserves personal clothing.",
+    "Privacy reset leaves an empty wardrobe after reload; samples return only through the explicit restore control."
+  ],
+  "errors": [],
+  "passed": true
+}

@@ -38,10 +38,14 @@ App Store release or Play Store release has been performed.
 
 ## Your wardrobe
 
-Open **Profile → My wardrobe** to add several clothes from one group photo, review and correct
+Open **Wardrobe** in the sidebar or mobile navigation to add several clothes from one group photo, review and correct
 separate garment crops, edit pieces, mark laundry/unavailable items and save outfit ideas.
 Recommendations use your owned clothes, with occasion, weather, colour and starting-piece choices.
-The budget builder also links to owned-clothes styling. No extra main tab or campaign page.
+The budget builder also links to owned-clothes styling. Six main destinations remain accessible.
+
+A new wardrobe starts with 16 labelled illustrated sample pieces so you can immediately test
+outfit ideas. Remove sample clothes preserves personal uploads; restore adds missing sample pieces
+without duplicates. A privacy reset leaves the wardrobe empty until you explicitly restore samples.
 
 Manual group-photo marking, local wardrobe storage and outfit suggestions work without an API.
 Automatic multi-garment recognition requires the served app plus server-only AI_GATEWAY_API_KEY

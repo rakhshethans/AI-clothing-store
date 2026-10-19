@@ -101,3 +101,10 @@
 @media(prefers-reduced-motion:reduce){.wd-piece-image>img{transition:none;transform:none!important}}
 
 .wd-camera-button{margin-top:12px;font-size:12px}
+.wd-sample-notice{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px 20px;border:1px solid var(--line);margin:24px 0;background:var(--card)}
+.wd-sample-notice strong{font-size:13px;font-weight:600}
+.wd-sample-notice p{font-size:12px;line-height:1.6;margin:5px 0 0;max-width:520px}
+.wd-sample-actions{display:flex;flex-wrap:wrap;gap:8px 20px}
+.wd-sample-actions button{font-size:11px;min-height:44px;text-align:left}
+.wd-sample-label{font-size:10px;display:inline-block;margin:0 0 7px;padding:2px 6px;border:1px solid var(--line);color:var(--mid)}
+@media(max-width:767px){.wd-sample-notice{align-items:flex-start;flex-direction:column;gap:8px;padding:16px}.wd-sample-actions{gap:5px 18px}.app-navigation{padding-left:4px;padding-right:4px}.app-navigation>a{font-size:8px;min-width:0}.app-navigation .icon{width:21px;height:21px}}

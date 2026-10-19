@@ -18,9 +18,10 @@ truthful prototype labels. Changes to the core structure require the owner's agr
 
 ## Owner-supplied reference brief (verbatim)
 
-Latest feature direction (19 October 2026): add a digital wardrobe and outfit ideas without
-replacing the five app tabs. Profile provides My wardrobe; Build a look links to owned-clothes
-styling. Wardrobe uses the same bone/ink tokens, Archivo preference, full-colour photographs,
+Latest owner update (19 October 2026): Wardrobe is a dedicated sidebar destination and a sixth
+mobile navigation item. Keep all existing destinations. Include 16 labelled sample garments for
+testing outfit ideas, with remove/restore controls that preserve personal uploads. Build a look
+also links to owned-clothes styling. Wardrobe uses the same bone/ink tokens, Archivo preference, full-colour photographs,
 thin dividers, touch-visible controls and four/two piece grid. Imports support several clothes
 in one photograph, editable detections and crop review. Show recognition setup and error states
 honestly. Do not create a landing page, campaign, fake recognition result or extra sales funnel.

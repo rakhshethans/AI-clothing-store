@@ -22,13 +22,15 @@ their garment lists. Photos without links remain valid.
 
 ## Interface
 
-Mobile uses a compact wordmark/search header and five bottom destinations: Explore, Search, Post,
-Saved and Profile. A post presents the author, photos, caption, restrained actions and a shopping
+Mobile uses a compact wordmark/search header and six bottom destinations: Explore, Search, Post,
+Saved, Wardrobe and Profile. A post presents the author, photos, caption, restrained actions and a shopping
 entry for the current image. No engagement counts or endorsements are invented.
 
 Desktop keeps the same feed in the middle, with app navigation at left and secondary inspiration
-at right. Warm ivory, charcoal and olive, editorial serif accents and the local Geist font keep
-the existing design direction. The social feed does not use pinned scrolling or a large sales hero.
+at right. Wardrobe now has a dedicated sixth navigation entry on desktop and mobile, as requested
+on 19 October. Its pre-populated sample collection supports outfit testing. The current bone/ink,
+Archivo preference and local fallback styling follow design.md. The earlier warm palette and
+serif direction is superseded. The social feed does not use pinned scrolling or a large sales hero.
 
 ## Implemented defaults awaiting future preference changes
 

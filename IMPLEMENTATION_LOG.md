@@ -259,3 +259,26 @@ Touch review also caught a re-entrant change/blur redraw in draft editing. Fixed
 focused fields mounted and updating only the crop preview and selected-piece count. Re-ran touch
 and full wardrobe browser checks successfully, then re-ran all 28 Node tests. Camera capture is
 an attribute/emulation check only; physical camera behaviour still requires a real device.
+
+## Dedicated Wardrobe navigation and sample collection - 19 October 2026
+
+Owner requested Wardrobe in the sidebar and 10-20 test clothes. Added a dedicated Wardrobe item
+on desktop and in the six-item mobile navigation, with active state shared by all wardrobe views.
+Added 16 original, colour vector garment illustrations across tops, bottoms, layers, one-pieces,
+shoes and accessories. These are labelled sample pieces in the collection and outfit cards; the
+wardrobe banner explicitly says suggestions can include test clothes. No recognition or purchase
+claim is attached to these items. Existing GPT Taste/design.md styling remains in place.
+
+IndexedDB version 2 adds a settings store for one-time seeding while preserving prior pieces and
+saved looks. Remove sample clothes leaves personal items intact and removes dependent sample
+looks; restore adds only missing samples. Reset clears wardrobe data without automatically
+repopulating it on reload; the explicit restore control remains available. Updated module serving,
+standalone bundling and cache v8 together, plus current product/design/navigation documentation.
+
+Verification: all 29 Node tests pass, including sample validation and everyday/smart/cold outfit
+coverage. Browser checks cover version-1 migration, one-time seeding, personal-item preservation,
+multiple generated looks, saved looks, sample removal/restore and reset across reload. Six mobile
+navigation targets remain visible and at least 44px wide at 320, 360 and 390px; no horizontal
+overflow at 320-1440px. All sample SVG images decode successfully. Desktop/mobile screenshots
+were visually inspected; online Archivo remains unverified and the local fallback was used.
+Evidence: operations/wardrobe-section-qa-2026-10-19.json. No live AI call or public deployment.

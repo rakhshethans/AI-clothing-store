@@ -54,9 +54,12 @@ changes. The standalone HTML removes manifest/touch-icon references and skips wo
 
 public/wardrobe-domain.js validates garment records/boxes and ranks owned-clothes combinations.
 public/wardrobe.js provides group-photo review, per-piece cropping, wardrobe CRUD and saved looks.
-public/wardrobe.css extends the existing visual system. IndexedDB threadline-wardrobe contains
+public/wardrobe.css extends the existing visual system. public/wardrobe-samples.js supplies 16
+original illustrated testing pieces. IndexedDB threadline-wardrobe version 2 contains
 pieces (cropped JPEG, editable metadata, favourites/availability) and looks (piece references).
-Preferences use threadline:wardrobe-preferences. Full import photos are transient browser memory.
+The settings store tracks one-time sample seeding. Version-1 migration preserves pieces and looks.
+Remove/restore affects sample records only. Reset writes a seeding marker to prevent samples from
+reappearing after a privacy clear. Preferences use threadline:wardrobe-preferences. Full import photos are transient browser memory.
 Privacy reset clears this data; piece deletion removes dependent saved looks.
 
 wardrobe-api.mjs provides optional local-only recognition through AI Gateway's compatible HTTP API.

@@ -21,7 +21,7 @@ and warm editorial visuals. These are implementation defaults, not separately co
 
 ## Implemented experience
 
-Explore, Search, Post, Saved and Profile navigation; desktop side rails and mobile bottom navigation;
+Explore, Search, Post, Saved, Wardrobe and Profile navigation; desktop side rails and mobile bottom navigation;
 photo carousels; photo-specific shopping sheets; labelled similar sample pieces; separate saved-post
 and saved-garment collections; local likes/follows; local profile; photo-dump composer with up to six
 validated images and eight manually linked garments per image; optional prices and link types;
@@ -55,12 +55,18 @@ actual browser evidence and outstanding real-device/accessibility checks.
 
 ## Wardrobe and owned-clothes styling (19 October)
 
-Owner authorised multi-garment photo import and recommendations from owned clothes. Profile →
-My wardrobe provides group-photo import with separately editable/cropped garment drafts, manual
+Owner authorised multi-garment photo import and recommendations from owned clothes. Wardrobe
+is now a dedicated main navigation destination. It provides group-photo import with separately editable/cropped garment drafts, manual
 missed-piece marking, local persistence, favourites, availability, editing and deletion. Outfit
 ideas uses actual wardrobe records, occasion/weather/colour preferences and optional anchors.
 Complete top/bottom/shoes or one-piece/shoes combinations are required; no imaginary items are
 substituted. Save combinations separately from product/post saves. Colours remain visible.
+
+The owner subsequently requested a pre-populated test wardrobe: seed 16 explicitly labelled
+sample pieces across all six garment categories once, without modifying personal items. Samples
+are original illustrations, not user-owned garments or recognition output. Remove/restore controls
+affect sample records and their dependent saved looks only. Privacy reset prevents automatic
+reseeding on reload. Sample outfit suggestions are labelled as containing sample pieces.
 
 Automatic detection has a real server-side provider integration requiring AI_GATEWAY_API_KEY and
 an image/structured-output capable AI_GATEWAY_MODEL. Neither is configured in this environment;

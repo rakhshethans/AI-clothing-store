@@ -1,7 +1,7 @@
 import {readFile,writeFile} from 'node:fs/promises';
 const root=new URL('../',import.meta.url);
 const textFile=p=>readFile(new URL(p,root),'utf8');
-const modules=['catalog','domain','media','motion','social-domain','social','pwa','wardrobe-domain','wardrobe','app'];
+const modules=['catalog','domain','media','motion','social-domain','social','pwa','wardrobe-domain','wardrobe-samples','wardrobe','app'];
 let [html,styles,explore,theme,wardrobeStyles,...scripts]=await Promise.all(['public/index.html','public/styles.css','public/explore.css','public/theme.css','public/wardrobe.css',...modules.map(m=>'public/'+m+'.js')].map(textFile));
 const [font,photo,feed]=await Promise.all([readFile(new URL('public/assets/geist-variable.woff2',root)),readFile(new URL('public/assets/editorial.webp',root)),readFile(new URL('public/assets/feed-editorial.webp',root))]);
 const css=(styles+'\n'+explore+'\n'+theme+'\n'+wardrobeStyles).replace('/assets/geist-variable.woff2','data:font/woff2;base64,'+font.toString('base64'));

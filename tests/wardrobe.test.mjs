@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {validateWardrobePiece,validateDetections,validateGarmentBox,rankWardrobeOutfits,colourHarmony} from '../public/wardrobe-domain.js';
+import {sampleWardrobePieces} from '../public/wardrobe-samples.js';
 const item=(id,category,overrides={})=>({id,name:id,category,colour:'navy',pattern:'solid',fit:'regular',formality:1,warmth:1,available:true,...overrides});
 const base=[item('shirt','top',{colour:'white',formality:2}),item('tee','top',{colour:'cream'}),item('jeans','bottom',{colour:'blue'}),item('trousers','bottom',{formality:2}),item('trainers','shoes',{colour:'white',warmth:0}),item('loafers','shoes',{colour:'brown',formality:2,warmth:0}),item('coat','layer',{colour:'grey',warmth:2,formality:2})];
 test('multi-garment detection preserves separate boxes and rejects unknown categories and invalid crops',()=>{
@@ -24,3 +25,9 @@ test('one-pieces work without invented trousers and accessories can anchor a loo
  const scarf=item('scarf','accessory');const anchored=rankWardrobeOutfits([...base,scarf],{anchor:'scarf'});assert.ok(anchored.outfits.length);assert.ok(anchored.outfits.every(o=>o.items.some(p=>p.id==='scarf')));
 });
 test('colour direction changes contrast preference without pretending to measure good taste',()=>{assert.ok(colourHarmony('blue','orange','bold').score>colourHarmony('blue','orange','quiet').score);assert.ok(colourHarmony('white','green').score>0);assert.ok(colourHarmony('blue','purple').score>0);});
+test('sample wardrobe has 16 distinct labelled pieces and supports everyday, smart and cold outfits',()=>{
+ assert.equal(sampleWardrobePieces.length,16);assert.equal(new Set(sampleWardrobePieces.map(p=>p.id)).size,16);
+ assert.equal(new Set(sampleWardrobePieces.map(p=>p.category)).size,6);
+ for(const p of sampleWardrobePieces){assert.doesNotThrow(()=>validateWardrobePiece(p));assert.equal(p.sample,true);assert.match(p.image,/^data:image\/svg\+xml/);}
+ for(const prefs of [{occasion:'casual'},{occasion:'smart'},{weather:'cold'}])assert.ok(rankWardrobeOutfits(sampleWardrobePieces,prefs).outfits.length>=3);
+});
