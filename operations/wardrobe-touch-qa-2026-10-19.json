@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "emulatedTouch": true,
+  "realDeviceCamera": false,
+  "flows": [
+    "Camera input requests environment-facing capture.",
+    "Manual group-photo crop fields and saving work with touch.",
+    "Availability edits work with touch.",
+    "Recognition remains disabled in standalone; no provider call."
+  ],
+  "errors": []
+}

@@ -18,6 +18,13 @@ truthful prototype labels. Changes to the core structure require the owner's agr
 
 ## Owner-supplied reference brief (verbatim)
 
+Latest feature direction (19 October 2026): add a digital wardrobe and outfit ideas without
+replacing the five app tabs. Profile provides My wardrobe; Build a look links to owned-clothes
+styling. Wardrobe uses the same bone/ink tokens, Archivo preference, full-colour photographs,
+thin dividers, touch-visible controls and four/two piece grid. Imports support several clothes
+in one photograph, editable detections and crop review. Show recognition setup and error states
+honestly. Do not create a landing page, campaign, fake recognition result or extra sales funnel.
+
 ```text
 Recreate the website "SABLE" with high visual fidelity using HTML, Tailwind CSS, and vanilla JavaScript. The site is a high-end, monochrome fashion e-commerce landing page with a minimalist, editorial aesthetic.
 

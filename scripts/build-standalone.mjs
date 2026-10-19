@@ -1,13 +1,13 @@
 import {readFile,writeFile} from 'node:fs/promises';
 const root=new URL('../',import.meta.url);
 const textFile=p=>readFile(new URL(p,root),'utf8');
-const modules=['catalog','domain','media','motion','social-domain','social','pwa','app'];
-let [html,styles,explore,theme,...scripts]=await Promise.all(['public/index.html','public/styles.css','public/explore.css','public/theme.css',...modules.map(m=>'public/'+m+'.js')].map(textFile));
+const modules=['catalog','domain','media','motion','social-domain','social','pwa','wardrobe-domain','wardrobe','app'];
+let [html,styles,explore,theme,wardrobeStyles,...scripts]=await Promise.all(['public/index.html','public/styles.css','public/explore.css','public/theme.css','public/wardrobe.css',...modules.map(m=>'public/'+m+'.js')].map(textFile));
 const [font,photo,feed]=await Promise.all([readFile(new URL('public/assets/geist-variable.woff2',root)),readFile(new URL('public/assets/editorial.webp',root)),readFile(new URL('public/assets/feed-editorial.webp',root))]);
-const css=(styles+'\n'+explore+'\n'+theme).replace('/assets/geist-variable.woff2','data:font/woff2;base64,'+font.toString('base64'));
+const css=(styles+'\n'+explore+'\n'+theme+'\n'+wardrobeStyles).replace('/assets/geist-variable.woff2','data:font/woff2;base64,'+font.toString('base64'));
 scripts=scripts.map(s=>s.replace(/^import .*;\r?\n/gm,'').replace("'/assets/editorial.webp'",JSON.stringify('data:image/webp;base64,'+photo.toString('base64'))).replace("'/assets/feed-editorial.webp'",JSON.stringify('data:image/webp;base64,'+feed.toString('base64'))));
 const code=scripts.join('\n').replace(/<\/script/gi,'<\\/script');
-const sourceTags='<link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/explore.css"><link rel="stylesheet" href="/theme.css"><script type="module" src="/app.js"></script>';
+const sourceTags='<link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/explore.css"><link rel="stylesheet" href="/theme.css"><link rel="stylesheet" href="/wardrobe.css"><script type="module" src="/app.js"></script>';
 if(!html.includes(sourceTags))throw new Error('Source tags changed: update the standalone bundler.');
 html=html.replace(/<(?:link|script) data-online-only[^>]*>(?:<\/script>)?/g,'').replace('<link rel="manifest" href="/manifest.webmanifest">','').replace('<link rel="apple-touch-icon" href="/assets/icon-192.png">','');
 const bundled=html.replace(sourceTags,()=>'<style>'+css+'</style><script type="module">'+code+'</script>');

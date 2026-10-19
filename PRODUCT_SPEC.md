@@ -53,6 +53,21 @@ The layout must reflow at 320–1440 CSS pixels, keep bottom navigation clear of
 reduced motion. The feed must not pin posts or hijack scrolling. See the implementation log for
 actual browser evidence and outstanding real-device/accessibility checks.
 
+## Wardrobe and owned-clothes styling (19 October)
+
+Owner authorised multi-garment photo import and recommendations from owned clothes. Profile →
+My wardrobe provides group-photo import with separately editable/cropped garment drafts, manual
+missed-piece marking, local persistence, favourites, availability, editing and deletion. Outfit
+ideas uses actual wardrobe records, occasion/weather/colour preferences and optional anchors.
+Complete top/bottom/shoes or one-piece/shoes combinations are required; no imaginary items are
+substituted. Save combinations separately from product/post saves. Colours remain visible.
+
+Automatic detection has a real server-side provider integration requiring AI_GATEWAY_API_KEY and
+an image/structured-output capable AI_GATEWAY_MODEL. Neither is configured in this environment;
+recognition remains explicitly unavailable rather than returning fabricated detections. Manual
+entry and local recommendations work independently. Live accuracy and provider retention need
+validation before launch. See operations/06-WARDROBE-AND-STYLING.md.
+
 ## Next production gates
 
 Provision shared authentication and authorised storage; implement public posting and server-side

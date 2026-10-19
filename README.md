@@ -36,6 +36,23 @@ App Store release or Play Store release has been performed.
 7. Use the post menu to hide a demo profile, save a local report, or delete your own local post.
 8. Search the sample catalogue or use Build a look to assemble a delivered sample budget.
 
+## Your wardrobe
+
+Open **Profile → My wardrobe** to add several clothes from one group photo, review and correct
+separate garment crops, edit pieces, mark laundry/unavailable items and save outfit ideas.
+Recommendations use your owned clothes, with occasion, weather, colour and starting-piece choices.
+The budget builder also links to owned-clothes styling. No extra main tab or campaign page.
+
+Manual group-photo marking, local wardrobe storage and outfit suggestions work without an API.
+Automatic multi-garment recognition requires the served app plus server-only AI_GATEWAY_API_KEY
+and AI_GATEWAY_MODEL in uncommitted .env.local. No live key is configured or bundled. The interface
+shows the connection state. The standalone HTML cannot perform server-side recognition.
+See operations/06-WARDROBE-AND-STYLING.md for setup and research/verification limits.
+
+Wardrobe photos, metadata and saved looks stay in this browser. Only an explicit, consented
+recognition action sends a resized group photo to the configured model provider. Privacy reset
+also clears wardrobe data. Provider retention follows the configured account's terms/settings.
+
 ## What is local
 
 There are no shared accounts or public uploads. Profile, likes, follows, saves, hidden profiles and

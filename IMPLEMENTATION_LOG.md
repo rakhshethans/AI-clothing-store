@@ -212,3 +212,50 @@ and carousels, photo-specific sheets, local posting/deletion, saves/follows, pro
 budget failure handling still work. Standalone HTML renders with zero network requests.
 Evidence: operations/campaign-removal-qa-2026-10-19.json. Browser routing exercised the actual
 server handler directly; online Archivo was blocked and the local fallback font was used.
+
+## Digital wardrobe and owned-clothes recommendations - 19 October 2026
+
+Published the campaign removal first (GitHub 166b2d1). Added wardrobe entry from Profile and
+Build a look without changing the five main tabs. Used GPT Taste and design.md, retaining the
+bone/ink style, full-colour photos, desktop/mobile layouts and reduced-motion behaviour.
+
+Group-photo upload supports four photos per import and multiple garments per image. A real
+server-side vision adapter requests separate garment attributes and normalised bounding boxes.
+Review supports corrected names/categories/colours/pattern/fit/dress level/weight and crop fields;
+missed pieces can be marked by dragging or keyboard-accessible crop fields. Added camera capture,
+atomic batch saves, exact duplicate-crop protection, editable wardrobe pieces, favourites,
+availability, deletion and saved outfit combinations. Data persists locally in IndexedDB; privacy
+reset removes wardrobe data and dependent saved looks are removed when a piece is deleted.
+
+Recommendations use owned available items only: top/bottom/shoes or one-piece/shoes, optional
+layers and anchored accessories. Occasion, manually selected weather, colour direction and a
+starting piece control bounded heuristic ranking. Explanations cover colour harmony, patterns,
+proportion and compatible dress levels. No missing garments are invented. Styling source notes,
+implementation assumptions and setup are in operations/06-WARDROBE-AND-STYLING.md.
+
+The optional recognition API uses server-only AI_GATEWAY_API_KEY and AI_GATEWAY_MODEL, explicit
+consent, same-origin JSON requests, bounded JPEG input, validated structured model output, one
+concurrent request, a 45-second timeout and 30 attempts per UTC day/process. The server binds to
+loopback; these local controls are not public authentication or durable billing limits. Original
+group photos are transient; selected crops are saved locally. Provider retention follows its terms.
+Server startup loads uncommitted .env.local; no credential is included in source or the export.
+
+Verification: all 28 Node tests and JavaScript syntax checks pass. Existing social/shop browser
+regression passes. Wardrobe browser flow and screenshots inspected at desktop/mobile, with layout
+checks at 320, 360, 390, 768, 1024 and 1440px. Confirmed separate crops from one photo, multi-photo
+review, correction, duplicate protection, persistence, owned-only recommendations, unavailable and
+missing-item states, saved looks, deleting dependent looks, provider failure/empty results, manual
+marking, privacy reset and offline standalone fallback. Touch emulation verifies manual entry,
+crop fields, availability and the camera capture attribute. Evidence: wardrobe-browser-qa and
+wardrobe-touch-qa JSON files in operations/.
+
+Limits: provider responses were mocked in automated/browser integration tests, using a synthetic
+three-garment photo; no live recognition credential or paid inference was available. Real garment
+detection accuracy remains unverified. The standalone cannot call the server recognition API.
+Physical iOS/Android camera and installation tests remain outstanding. Archivo is unverified
+online in this environment; visual checks used the local fallback. No public deployment occurred.
+
+Touch review also caught a re-entrant change/blur redraw in draft editing. Fixed it by keeping
+focused fields mounted and updating only the crop preview and selected-piece count. Re-ran touch
+and full wardrobe browser checks successfully, then re-ran all 28 Node tests. Camera capture is
+an attribute/emulation check only; physical camera behaviour still requires a real device.

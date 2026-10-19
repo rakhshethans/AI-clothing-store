@@ -1,0 +1,24 @@
+{
+  "layouts": [
+    1440,
+    1024,
+    768,
+    390,
+    360,
+    320
+  ],
+  "flows": [
+    "One group photo creates three editable, separately cropped wardrobe pieces; confirmation persists all three across reload.",
+    "Owned-only outfit suggestions, favourite pieces, anchor selection and saved looks work and persist.",
+    "Multiple group photos are processed independently; exact duplicate crops are not saved twice.",
+    "Missing smart clothing and unavailable shoes produce an honest empty result, never invented garments.",
+    "Provider errors and no-clothes responses add nothing; manual multi-piece marking remains available.",
+    "Dragging a crop can mark a missed garment; Escape cancels import.",
+    "Deleting a piece removes saved combinations that reference it.",
+    "Privacy reset clears wardrobe images, saved looks and preferences.",
+    "Standalone file honestly disables automatic recognition and retains manual wardrobe tools."
+  ],
+  "recognition": "Mock provider results for UI integration only; no live model or accuracy evaluation.",
+  "errors": [],
+  "passed": true
+}

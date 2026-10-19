@@ -50,6 +50,23 @@ sample redirects, unknown paths and non-GET methods. It never caches an upload e
 private posts. A new worker version should change the named app cache when its offline contract
 changes. The standalone HTML removes manifest/touch-icon references and skips worker registration.
 
+## Wardrobe extension
+
+public/wardrobe-domain.js validates garment records/boxes and ranks owned-clothes combinations.
+public/wardrobe.js provides group-photo review, per-piece cropping, wardrobe CRUD and saved looks.
+public/wardrobe.css extends the existing visual system. IndexedDB threadline-wardrobe contains
+pieces (cropped JPEG, editable metadata, favourites/availability) and looks (piece references).
+Preferences use threadline:wardrobe-preferences. Full import photos are transient browser memory.
+Privacy reset clears this data; piece deletion removes dependent saved looks.
+
+wardrobe-api.mjs provides optional local-only recognition through AI Gateway's compatible HTTP API.
+GET /api/wardrobe/status reports configured/unconfigured without exposing credentials. POST
+/api/wardrobe/recognise validates consent, request shape, image size/magic and model JSON output.
+Server-only AI_GATEWAY_API_KEY / AI_GATEWAY_MODEL are loaded from uncommitted .env.local when
+running the Node entry point. No external SDK, server-side wardrobe storage or public endpoint
+authentication is added. This is not ready to expose as an unauthenticated paid inference endpoint.
+See operations/06-WARDROBE-AND-STYLING.md for setup, heuristics, quotas and verification limits.
+
 ## Production boundary
 
 The future open-posting product needs shared auth, scoped storage, server-side file/link validation,
