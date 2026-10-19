@@ -3,17 +3,15 @@
 A mobile-first outfit discovery and shopping prototype. The default Explore page is a social-style
 feed: swipe through photo dumps, open a photo-specific shopping sheet, and save posts or pieces.
 
-The SABLE-inspired refresh uses a bone/ink palette, Archivo typography online, monochrome editorial
-photography and vanilla motion. The default remains the social feed. Open **The autumn edit** on
-desktop or **Profile → Visit the autumn edit** on mobile for the campaign. See design.md for the
-full owner-supplied reference and the boundaries of this adaptation.
+The visual refinement uses a bone/ink palette, Archivo typography online, thin rules and restrained
+controls. SABLE is a styling reference only. Post photos retain their full colours; there is no
+separate campaign page. See design.md for the owner's current direction.
 
 ## Open it
 
 Open **Threadline.html** in a browser for the self-contained preview. No install, API key or network
-is required for the main app. The optional editorial campaign uses external reference images/video
-and needs internet access. The file preview uses the local fallback font. Refresh that file after a
-new build. This file preview cannot be installed as a PWA.
+is required. The file preview uses the local fallback font. Refresh that file after a new build.
+This file preview cannot be installed as a PWA.
 If you cloned the repository, first run node scripts/build-standalone.mjs to generate this file;
 the standalone export is intentionally excluded from Git history.
 

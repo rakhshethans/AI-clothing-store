@@ -14,16 +14,14 @@ repurpose the unrelated parent site. No framework, package installation or API k
 - public/social-domain.js: pure validation for profile handles, uploads, garment prices and URLs.
 - public/social.js: feed/carousels, per-photo garment links, local composer, profile and social state.
 - public/media.js and public/assets/: local original imagery, Geist font and app icons.
-- public/sable.css: SABLE-inspired bone/ink, Archivo and responsive editorial refinement.
-- public/editorial.js: campaign markup on the existing editorial route, using the supplied URLs.
-- public/motion.js: vanilla parallax, intersection reveals, lazy cloth video and scroll progress;
-  all observers/playback are cleaned up on navigation. Reduced motion is respected. The older
-  public/vendor/ GSAP files are retained as historical assets but no longer loaded or cached.
+- public/theme.css: bone/ink, Archivo and responsive styling for the existing app.
+- public/motion.js: lightweight vanilla scroll progress with route cleanup and reduced-motion
+  support. No campaign motion, video or page is included. Older public/vendor/ GSAP files remain
+  historical assets and are not loaded or cached.
 - public/pwa.js, manifest.webmanifest and sw.js: install guidance and an app-only offline cache.
 - server.mjs: loopback static server, health endpoint and allowlisted sample redirects.
 - scripts/build-standalone.mjs: embeds all three stylesheets, modules, local feed images and fallback
-  font. Online font/CDN head tags are removed in the export; the optional editorial route still
-  needs internet access for its exact reference images and video.
+  font. Online Google Fonts tags are removed from the self-contained export.
 - tests/: catalogue/domain/importer, bundle, server, social validation and offline-worker checks.
 
 ## Browser storage
@@ -43,10 +41,9 @@ HTTPS links after validation; entered prices and product identities are unverifi
 
 ## PWA boundary
 
-The served shell optionally loads Archivo from Google Fonts and Tailwind from its CDN. Local CSS
-is sufficient for the app layout if those fail. CSP permits only those declared presentation hosts
-and jsDelivr for campaign media. The service worker caches local app resources only; it does not
-cache the campaign video, Google Fonts or remote script. No reference media is silently substituted.
+The served shell optionally loads Archivo from Google Fonts. Local CSS and a locally bundled
+fallback font keep the app usable offline. CSP permits Google font resources; Tailwind's CDN and
+jsDelivr campaign permissions were removed. The worker caches local app resources only.
 
 The worker precaches an explicit same-origin app-file list. It ignores external retailer requests,
 sample redirects, unknown paths and non-GET methods. It never caches an upload endpoint or syncs

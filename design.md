@@ -1,19 +1,20 @@
 # Threadline — SABLE visual direction
 
-## Application scope
+## Application scope — corrected by owner, 19 October 2026
 
-Owner correction, 19 October 2026: ALL post photographs must display their original colours,
-including demo posts, saved posts and uploaded photo dumps. Do not apply grayscale, desaturation,
-contrast or colour grading to feed photos. Clothing colour is essential shopping information.
-Monochrome image treatment is limited to the separate SABLE campaign/editorial page.
+Use SABLE only as a visual reference for the existing mobile social-shopping app: bone/ink,
+Archivo typography, restrained controls, whitespace and thin dividers. The owner removed the
+unnecessary Autumn edit campaign page and its links. Do not restore a copied campaign, full-page
+brand clone, fabric video, lookbook, atelier section or newsletter flow without a new request.
+The quoted reference below is historical source material, not permission to add those features.
 
-Owner brief received 19 October 2026. This is a visual refinement of the existing mobile social-shopping app. Keep Explore as the initial view; retain Search, Post, Saved, Profile, photo-specific shopping sheets, persistence and budget planning. The existing editorial route is the home for the larger campaign composition. Do not replace the feed with a storefront or introduce checkout without asking the owner.
+Keep Explore as the initial view and retain Search, Post, Saved, Profile, per-photo shopping,
+local persistence and budget planning. All post photos (including demos and uploads) must retain
+their original colours. Keep the corrected demo photo crops. Preserve accessible touch actions,
+desktop/mobile reflow, the updated SVG heart, and reduced-motion support.
 
-Apply the supplied bone/ink colours, Archivo typography, precise heart icon, hairline divisions, monochrome campaign photography, restrained motion and mobile-safe controls. GPT Taste is the requested skill; the Sites skill is prohibited. The explicit reference overrides the skill's random layouts, stock imagery, GSAP requirements and font defaults.
-
-Keep Threadline's name and truthful prototype disclosures. SABLE's company/address, atelier statistics and fabric specifications are reference copy, not claims about Threadline. No fabricated studio, manufacturing team, commerce inventory, mailing list or bag is introduced. Existing saved-piece actions remain saves. Garment illustrations and user-uploaded photographs keep their original colours for useful comparisons; grayscale applies to editorial media. Touch controls remain visible without hover.
-
-The supplied prompt does not contain the original CSS clamp values, exact number-counting code or full source copy. Reconstructed spacing and motion must be described as an adaptation, not a pixel-identical implementation. Reference media uses the exact supplied jsDelivr URLs; cloth.mp4 must never be replaced. Its src is assigned only on intersection, and playback pauses offscreen. Reduced motion leaves all content visible and uses a manual video play control.
+GPT Taste remains the requested design skill; Sites is prohibited. Keep Threadline branding and
+truthful prototype labels. Changes to the core structure require the owner's agreement.
 
 ## Owner-supplied reference brief (verbatim)
 
@@ -118,11 +119,10 @@ IMPLEMENTATION REQUIREMENTS
 
 ## Acceptance checks
 
-- Explore is still the first view; all five app destinations and local social flows remain usable.
-- Bone #EFEDE8 / ink #101010; Archivo when Google Fonts is reachable, local sans fallback offline.
-- 96px sticky blurred desktop navigation; link labels hide below 900px, bottom app tabs remain usable.
-- Full-width editorial campaign is isolated to the existing editorial destination; wordmark is behind the direct-child transparent model.
-- Exact SVG heart, 1.6 stroke; grayscale/contrast only on the separate campaign; all post and product colours preserved.
-- Four product columns desktop, two mobile; three category columns desktop, one mobile.
-- Vanilla motion, lazy exact cloth video, cleanup on route change, reduced-motion static states.
-- Inspect desktop/mobile screenshots and exercise saves, search, carousel sheets and composer; report remote-media failures explicitly.
+- No Autumn edit page, navigation links, copied SABLE sections, remote campaign images or video.
+- Explore, Search, Post, Saved and Profile stay intact; old #editorial URLs return to Explore.
+- Bone #EFEDE8 / ink #101010, Archivo online with local fallback, restrained controls and spacing.
+- All post and product images preserve their colours; demo crops contain one photograph only.
+- Four desktop/two mobile product columns; touch-visible actions and no mobile hover effects.
+- Preserve per-photo garment sheets, posting, persistence, privacy and the budget planner.
+- Browser verification at desktop/mobile sizes before declaring completion.

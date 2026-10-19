@@ -191,3 +191,24 @@ Verified and visually inspected the complete first photo including its lower edg
 1440px and mobile 390px. The neighbouring image strip is gone. Browser checks confirm all four
 explicit viewBoxes, no horizontal overflow, and working carousel/photo-specific shopping after
 switching frames. All 19 Node tests passed. Evidence: operations/photo-crop-qa-2026-10-19.json.
+
+## Remove unnecessary campaign page — 19 October 2026
+
+Owner explicitly requested removal of the SABLE-derived Autumn edit. Deleted its page module,
+navigation/profile/sidebar links and campaign-only styles, motion, remote media permissions and
+unused Tailwind CDN script/configuration. Moved the retained app styling into public/theme.css.
+Kept the bone/ink palette, Archivo font preference, angular controls, exact heart, touch rules,
+four/two shopping grid, full-colour post photos and corrected demo crops. The old #editorial URL
+now returns to Explore. Profile still exposes privacy controls. No social data or app flow changed.
+Updated app routing, static server allowlist, standalone bundler, worker/cache v6 and documentation
+together. design.md now clearly limits SABLE to a visual reference and retains the owner's original
+prompt as historical context only. Do not recreate the campaign without a new request.
+
+Verification after resuming: all 19 Node tests and JavaScript syntax checks passed. Refreshed
+Chrome browser checks cover 320, 360, 390, 768, 1024 and 1440px without horizontal overflow.
+Inspected current desktop/mobile Explore screenshots. Confirmed campaign links/media are absent,
+old #editorial URLs return to Explore, shopping retains four/two columns, photos stay in colour,
+and carousels, photo-specific sheets, local posting/deletion, saves/follows, profile privacy and
+budget failure handling still work. Standalone HTML renders with zero network requests.
+Evidence: operations/campaign-removal-qa-2026-10-19.json. Browser routing exercised the actual
+server handler directly; online Archivo was blocked and the local fallback font was used.

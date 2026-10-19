@@ -1,0 +1,65 @@
+{
+  "layouts": [
+    {
+      "width": 1440,
+      "scroll": 1440,
+      "photoWidth": 600,
+      "navBottom": 636.328125
+    },
+    {
+      "width": 1024,
+      "scroll": 1024,
+      "photoWidth": 600,
+      "navBottom": 636.328125
+    },
+    {
+      "width": 768,
+      "scroll": 768,
+      "photoWidth": 538,
+      "navBottom": 636.328125
+    },
+    {
+      "width": 390,
+      "scroll": 390,
+      "photoWidth": 390,
+      "navBottom": 844
+    },
+    {
+      "width": 360,
+      "scroll": 360,
+      "photoWidth": 360,
+      "navBottom": 844
+    },
+    {
+      "width": 320,
+      "scroll": 320,
+      "photoWidth": 320,
+      "navBottom": 844
+    }
+  ],
+  "interactions": [
+    "Likes, follows and saved posts survive reload.",
+    "Shopping sheet follows the selected photo, saves a piece and closes with Escape.",
+    "An untagged frame hides its shopping action.",
+    "Saved posts and pieces have separate working collections.",
+    "Composer validates files/links, keeps tags per photo, publishes locally and persists after reload.",
+    "A user-linked garment can be saved and reopened from Saved pieces.",
+    "Local reports are honestly labelled; hiding a profile persists and can be undone.",
+    "Own local posts can be deleted.",
+    "Existing budget planner still reports an impossible budget correctly.",
+    "Campaign route and links removed; old route returns to Explore; bone/ink styling, colour photos and corrected crops retained.",
+    "Standalone social HTML renders without any network request.",
+    "Cancelling Post returns to Explore and the Post tab reopens immediately.",
+    "A saved retailer link can be removed from the garment collection.",
+    "Mobile profile provides privacy access; reset removes the local profile, social state, posts and saved data."
+  ],
+  "errors": [],
+  "failed": [],
+  "limitations": [
+    "Online Archivo rendering remains unverified because Google Fonts is inaccessible here; local fallback used."
+  ],
+  "externalResources": [
+    "https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap"
+  ],
+  "passed": true
+}

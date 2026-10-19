@@ -8,8 +8,9 @@ design rules to unrelated projects. Threadline is a working name, not a cleared 
 
 Latest owner direction (19 October 2026): read design.md for the SABLE reference brief and its
 application scope. Its bone/ink palette, Archivo typography and vanilla motion supersede the older
-olive/serif/GSAP defaults below. Preserve the mobile social feed and core flows. The existing
-editorial route carries the campaign composition; do not turn the app into a checkout storefront.
+olive/serif/GSAP defaults below. Preserve the mobile social feed and core flows. SABLE is only a
+visual reference: do not add a separate campaign page, copied brand content or storefront. The
+owner explicitly removed the Autumn edit; do not recreate it without a new request.
 
 Read PRODUCT_SPEC.md and ARCHITECTURE.md before implementation. Inspect the actual repository,
 current changes, package scripts and applicable instructions before editing. Preserve unrelated

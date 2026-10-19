@@ -48,15 +48,12 @@ exercise selected artistic asymmetry, a horizontal accordion, a carousel, an inl
 scrubbing text and scroll pinning. The carousel contains editorial styling notes, not fabricated
 testimonials. Core search, stock, money and privacy rules are unchanged. The owner-selected warm
 palette and editorial serif hierarchy take precedence over generic landing-page treatments.
-# SABLE reference media, 19 October 2026
+## SABLE visual reference — current scope, 19 October 2026
 
-Owner-supplied visual reference: https://cdn.jsdelivr.net/gh/VanhDc/aura-assets@sable-v2/sable/img/
-used in the optional editorial view through the exact supplied URLs, including cloth.mp4. Upstream
-file names were verified through GitHub's sable-v2 tree; binary media and playback could not be
-fetched in this execution environment. No stock substitutions or retailer/product identity claims.
-The owner requested these reference assets; no separate commercial redistribution licence has
-been verified. They are not copied into this repository. Review rights before a public launch.
+The owner supplied SABLE as a visual reference. Its separately added campaign page was removed
+at the owner's request. No SABLE remote assets, video, copy, company address or campaign sections
+are used by the app. The full historical brief is retained in design.md for context only.
 
-Archivo is requested from Google Fonts (weights 400–900), with the existing locally bundled Geist
-as an offline fallback. Tailwind's CDN is a prototype presentation dependency; the critical layout
-is also declared in local CSS. Earlier GSAP assets are retained but no longer executed.
+Archivo is requested from Google Fonts (weights 400–900), with the existing local Geist font as
+an offline fallback. The Tailwind CDN dependency and campaign-specific CSP permissions were removed.
+Earlier GSAP assets remain in the repository but are not executed.
