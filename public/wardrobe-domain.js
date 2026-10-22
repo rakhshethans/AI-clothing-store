@@ -36,14 +36,14 @@ export function colourHarmony(a,b,mood='balanced'){
  return {score:mood==='bold'?1:-1,reason:'This is a more expressive colour mix.'};
 }
 export function rankWardrobeOutfits(pieces,preferences={}){
- const {occasion='casual',weather='mild',mood='balanced',anchor='',limit=6}=preferences;
+ const {occasion='casual',weather='mild',mood='balanced',anchor='',limit=6,feedback={}}=preferences;
  const ranges={casual:[0,2],smart:[2,3],evening:[1,3],active:[0,0]};
  const range=ranges[occasion]||ranges.casual;
  const owned=pieces.filter(p=>p.available!==false&&p.id&&wardrobeCategories.includes(p.category));
  if(anchor&&!owned.some(p=>p.id===anchor))return {outfits:[],message:'Your starting piece is unavailable. Choose another piece.'};
  const suitable=p=>p.formality>=range[0]&&p.formality<=range[1]&&(weather!=='warm'||p.warmth<2);
  const group=cat=>owned.filter(p=>p.category===cat&&suitable(p)).sort((a,b)=>Number(b.id===anchor)-Number(a.id===anchor)||Number(!!b.favourite)-Number(!!a.favourite)||String(a.id).localeCompare(String(b.id))).slice(0,30);
- const tops=group('top'),bottoms=group('bottom'),dresses=group('onepiece'),shoes=group('shoes'),layers=group('layer');
+ const tops=group('top'),bottoms=group('bottom'),dresses=group('onepiece'),shoes=group('shoes'),layers=group('layer'),accessories=group('accessory');
  if(!shoes.length||(!dresses.length&&(!tops.length||!bottoms.length)))return {outfits:[],message:'Add an available top and bottom (or a one-piece), plus shoes that fit these preferences. No missing pieces will be invented.'};
  const bases=[];for(const top of tops)for(const bottom of bottoms)bases.push([top,bottom]);for(const dress of dresses)bases.push([dress]);
  const candidates=[];
@@ -59,26 +59,31 @@ export function rankWardrobeOutfits(pieces,preferences={}){
   if(prints>1)reasons.push('Mixed patterns make this a more experimental option.');
   const top=items.find(p=>p.category==='top'),bottom=items.find(p=>p.category==='bottom');
   if(top&&bottom){if(top.fit==='relaxed'&&bottom.fit==='relaxed'){score+=mood==='bold'?1:-1;reasons.push('A relaxed silhouette throughout; try a tuck if you want more definition.');}else if(top.fit!==bottom.fit){score+=3;reasons.push('Contrasting volumes give the silhouette some balance.');}}
-  const weight=items.filter(p=>p.category!=='shoes').reduce((s,p)=>s+p.warmth,0);
+  const weight=items.filter(p=>!['shoes','accessory'].includes(p.category)).reduce((s,p)=>s+p.warmth,0);
   if(weather==='cold'&&weight<3&&!allowCold)return null;
   score+=items.reduce((s,p)=>s+(p.favourite?2:0),0);
   if(mood==='quiet')score+=items.filter(p=>neutral.has(p.colour)).length;
+  if(occasion==='evening')score+=items.filter(p=>p.category!=='accessory').reduce((sum,p)=>sum+3*(p.formality>=2?1:-1),0);
   // Average pair harmony so extra layers do not win simply by creating more pairs.
   const pairCount=items.length*(items.length-1)/2;
   score-=items.filter(p=>p.category==='layer').length*(weather==='warm'?6:2);
+  score-=items.filter(p=>p.category==='accessory').length;
   score/=Math.max(1,Math.sqrt(pairCount));
-  reasons.push(occasion==='active'?'Sportswear dress levels stay consistent.':occasion==='smart'?'Every piece is marked smart or formal.':'The pieces have compatible dress levels.');
+  reasons.push(occasion==='active'?'Sportswear dress levels stay consistent.':occasion==='smart'?'Every piece is marked smart or formal.':occasion==='evening'&&items.filter(p=>p.category!=='accessory').every(p=>p.formality>=2)?'Smarter pieces give this an evening-ready direction.':'The pieces have compatible dress levels.');
   if(weather==='cold')reasons.push('Warmer pieces and layering suit your cold-weather preference.');
   if(weather==='warm')reasons.push('Heavy pieces are excluded for your warm-weather preference.');
-  const id=items.map(p=>p.id).sort().join('|');return {id,items,score,reasons:[...new Set(reasons)]};
+  const id=items.map(p=>p.id).sort().join('|');if(!allowCold&&feedback[id]===1){score+=4;reasons.push('You marked this combination as one you would wear.');}return {id,items,score,reasons:[...new Set(reasons)]};
  };
  // Bound work without silently dropping the chosen anchor. Beam by colour/fit quality first.
  let partial=[];for(const base of bases)for(const shoe of shoes){const r=scoreCombo([...base,shoe],true);if(r)partial.push(r);}
  partial.sort((a,b)=>b.score-a.score||a.id.localeCompare(b.id));
  const anchored=partial.filter(r=>r.items.some(p=>p.id===anchor));
  partial=[...new Map([...anchored.slice(0,160),...partial.slice(0,160)].map(r=>[r.id,r])).values()];
- const accessory=owned.find(p=>p.id===anchor&&p.category==='accessory'&&suitable(p));
- for(const base of partial){const variants=weather==='cold'?layers:[null,...layers];for(const layer of variants){const items=[...base.items,...(layer?[layer]:[]),...(accessory?[accessory]:[])];if(anchor&&!items.some(p=>p.id===anchor))continue;const r=scoreCombo(items);if(r)candidates.push(r);}}
+ const accessory=accessories.find(p=>p.id===anchor);
+ for(const base of partial){const variants=weather==='cold'?layers:[null,...layers];for(const layer of variants){const main=[...base.items,...(layer?[layer]:[])];
+  const suggested=accessories.filter(p=>Math.abs(p.formality-main[0].formality)<=1).map(p=>({piece:p,match:main.reduce((sum,q)=>sum+colourHarmony(p.colour,q.colour,mood).score,0)+(p.favourite?2:0)})).sort((a,b)=>b.match-a.match||a.piece.id.localeCompare(b.piece.id)).slice(0,2).map(p=>p.piece);
+  for(const extra of accessory?[accessory]:[null,...suggested]){const items=[...main,...(extra?[extra]:[])];if(anchor&&!items.some(p=>p.id===anchor))continue;const r=scoreCombo(items);if(r&&feedback[r.id]!==-1)candidates.push(r);}
+ }}
  candidates.sort((a,b)=>b.score-a.score||a.id.localeCompare(b.id));
  const unique=[...new Map(candidates.map(r=>[r.id,r])).values()];const chosen=[];
  // Greedily vary pieces so the first screen is not six copies of the same outfit.

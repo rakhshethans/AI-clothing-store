@@ -31,3 +31,18 @@ test('sample wardrobe has 16 distinct labelled pieces and supports everyday, sma
  for(const p of sampleWardrobePieces){assert.doesNotThrow(()=>validateWardrobePiece(p));assert.equal(p.sample,true);assert.match(p.image,/^data:image\/svg\+xml/);}
  for(const prefs of [{occasion:'casual'},{occasion:'smart'},{weather:'cold'}])assert.ok(rankWardrobeOutfits(sampleWardrobePieces,prefs).outfits.length>=3);
 });
+test('evening prioritises smarter garments and accessories can be suggested without an anchor',()=>{
+ const evening=rankWardrobeOutfits(sampleWardrobePieces,{occasion:'evening'}).outfits[0];
+ assert.ok(evening.items.filter(p=>p.category!=='accessory').every(p=>p.formality>=2));
+ assert.ok(rankWardrobeOutfits(sampleWardrobePieces).outfits.some(o=>o.items.some(p=>p.category==='accessory')));
+});
+test('outfit feedback hides rejected combinations and boosts liked combinations without relaxing constraints',()=>{
+ const initial=rankWardrobeOutfits(sampleWardrobePieces).outfits[0];
+ const hidden=rankWardrobeOutfits(sampleWardrobePieces,{feedback:{[initial.id]:-1}});assert.ok(hidden.outfits.every(o=>o.id!==initial.id));
+ const liked=rankWardrobeOutfits(sampleWardrobePieces,{feedback:{[initial.id]:1}}).outfits.find(o=>o.id===initial.id);assert.ok(liked);assert.ok(liked.score>=initial.score+3.99);assert.match(liked.reasons.join(' '),/would wear/);
+ const smart=rankWardrobeOutfits(sampleWardrobePieces,{occasion:'smart',feedback:{[initial.id]:1}});assert.ok(smart.outfits.every(o=>o.items.every(p=>p.formality>=2)));
+});
+test('a warm accessory cannot substitute for warmer main clothing on a cold day',()=>{
+ const thin=[item('tee','top',{warmth:0}),item('trousers','bottom',{warmth:0}),item('shoes','shoes',{warmth:0}),item('thin-layer','layer',{warmth:1}),item('scarf','accessory',{warmth:2})];
+ assert.equal(rankWardrobeOutfits(thin,{weather:'cold',anchor:'scarf'}).outfits.length,0);
+});

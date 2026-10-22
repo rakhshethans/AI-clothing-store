@@ -1,0 +1,23 @@
+{
+  "layouts": [
+    1440,
+    1024,
+    768,
+    390,
+    360,
+    320
+  ],
+  "flows": [
+    "Would wear feedback persists across reload and is marked on the matching outfit.",
+    "Not for me removes only the rejected exact combination and keeps it hidden on reload.",
+    "Evening choices include smarter combinations; accessories appear without being selected as an anchor.",
+    "Reset outfit feedback clears saved ratings without changing wardrobe pieces.",
+    "Automatic recognition remains disabled; manual group-photo marking remains available.",
+    "Privacy reset removes outfit feedback together with wardrobe data."
+  ],
+  "errors": [],
+  "requests": [],
+  "paidApiCalls": 0,
+  "cloudResourcesCreated": 0,
+  "passed": true
+}

@@ -1,5 +1,9 @@
 # Deployment preparation — not deployed
 
+22 October owner constraint: zero spending. Deployment is on hold; do not create hosting
+projects or resources. The Vercel connection was inspected read-only, and no project was created.
+The instructions below are historical preparation, not permission to deploy. See NO_SPEND.md.
+
 Current preview is loopback-only. No site registration, remote Git push or public hosting changes
 were made. The parent .openai/hosting.json belongs to another application and must not be reused.
 

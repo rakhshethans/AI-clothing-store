@@ -101,6 +101,12 @@
 @media(prefers-reduced-motion:reduce){.wd-piece-image>img{transition:none;transform:none!important}}
 
 .wd-camera-button{margin-top:12px;font-size:12px}
+.wd-rating{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.wd-rating button{min-height:44px;padding:10px 14px;font-size:12px;border:1px solid var(--line);background:transparent;color:var(--ink)}
+.wd-rating button[aria-pressed=true]{border-color:var(--ink);background:var(--card)}
+.wd-feedback-summary{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:24px}
+.wd-feedback-summary p{font-size:12px;line-height:1.7;margin:0;color:var(--mid)}
+@media(max-width:767px){.wd-feedback-summary{align-items:flex-start;flex-direction:column;gap:10px}}
 .wd-sample-notice{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px 20px;border:1px solid var(--line);margin:24px 0;background:var(--card)}
 .wd-sample-notice strong{font-size:13px;font-weight:600}
 .wd-sample-notice p{font-size:12px;line-height:1.6;margin:5px 0 0;max-width:520px}

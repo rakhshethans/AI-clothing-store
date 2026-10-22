@@ -1,5 +1,9 @@
 # Threadline — SABLE visual direction
 
+22 October: owner requires zero spending. Keep the existing local app and add restrained Would
+wear / Not for me controls to outfit ideas, with local persistence and a reset option. Do not
+create hosting resources, use metered recognition or paid assets. NO_SPEND.md is authoritative.
+
 ## Application scope — corrected by owner, 19 October 2026
 
 Use SABLE only as a visual reference for the existing mobile social-shopping app: bone/ink,

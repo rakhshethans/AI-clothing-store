@@ -2,6 +2,11 @@
 
 Status: mobile social-shopping prototype, 19 October 2026. Working name, not trademark-cleared.
 
+22 October owner constraint: zero spending. Do not deploy or enable metered AI. Local outfit
+ranking, manual wardrobe entry, sample clothes and local feedback are the active testing route.
+Automatic recognition is disabled in code, even with credentials. NO_SPEND.md takes precedence
+over older activation notes. No cloud project or deployment was created.
+
 ## Latest owner direction
 
 On 18 October the owner selected:

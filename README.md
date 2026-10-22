@@ -1,5 +1,9 @@
 # Threadline
 
+Owner constraint (22 October 2026): zero spending. Cloud deployment and metered AI recognition
+are disabled. The server refuses recognition even if provider credentials exist. Use local
+manual photo marking and outfit generation. See NO_SPEND.md. No cloud project has been created.
+
 A mobile-first outfit discovery and shopping prototype. The default Explore page is a social-style
 feed: swipe through photo dumps, open a photo-specific shopping sheet, and save posts or pieces.
 
@@ -48,14 +52,16 @@ outfit ideas. Remove sample clothes preserves personal uploads; restore adds mis
 without duplicates. A privacy reset leaves the wardrobe empty until you explicitly restore samples.
 
 Manual group-photo marking, local wardrobe storage and outfit suggestions work without an API.
-Automatic multi-garment recognition requires the served app plus server-only AI_GATEWAY_API_KEY
-and AI_GATEWAY_MODEL in uncommitted .env.local. No live key is configured or bundled. The interface
-shows the connection state. The standalone HTML cannot perform server-side recognition.
+Automatic provider recognition is disabled to avoid charges. It cannot be enabled merely by
+adding credentials. The interface shows the disabled state; manual multi-garment marking works.
 See operations/06-WARDROBE-AND-STYLING.md for setup and research/verification limits.
 
-Wardrobe photos, metadata and saved looks stay in this browser. Only an explicit, consented
-recognition action sends a resized group photo to the configured model provider. Privacy reset
-also clears wardrobe data. Provider retention follows the configured account's terms/settings.
+Wardrobe photos, metadata, outfit feedback and saved looks stay in this browser. No recognition
+photo is uploaded in no-spend mode. Privacy reset also clears wardrobe data and outfit feedback.
+
+Outfit ideas now favours smarter combinations for Evening, includes optional accessories, and
+accepts Would wear / Not for me feedback. Rejected exact combinations are hidden; liked ones
+are prioritised. Reset outfit feedback restores neutral ranking. This all runs locally.
 
 ## What is local
 

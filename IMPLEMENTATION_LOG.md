@@ -282,3 +282,29 @@ navigation targets remain visible and at least 44px wide at 320, 360 and 390px; 
 overflow at 320-1440px. All sample SVG images decode successfully. Desktop/mobile screenshots
 were visually inspected; online Archivo remains unverified and the local fallback was used.
 Evidence: operations/wardrobe-section-qa-2026-10-19.json. No live AI call or public deployment.
+
+## No-spend outfit testing - 22 October 2026
+
+Owner requested progress on the remaining work, then required zero spending. Vercel team/project
+lists were inspected read-only; no project, deployment, key, paid service or resource was created.
+Recorded NO_SPEND.md and superseded historical provider/deployment activation instructions.
+The server now reports recognition disabled and refuses photo inference without reading the body;
+provider credentials alone cannot enable a metered request. Manual multi-photo marking remains.
+
+Improved local outfit ranking: Evening favours smarter main pieces; optional accessories can be
+suggested without an anchor; scarves do not count toward the main clothing warmth constraint.
+Added Would wear / Not for me controls with up to 200 local feedback records in IndexedDB settings.
+Positive feedback boosts the exact combination; negative feedback hides it without relaxing
+availability/occasion/weather constraints. Reset outfit feedback clears ratings alone; privacy
+reset clears feedback with wardrobe data. Existing bone/ink style and full-colour imagery retained.
+
+Validation: all 32 Node tests and all configured source syntax checks pass locally. Browser checks
+at 320, 360, 390, 768, 1024 and 1440px confirm no horizontal overflow. Inspected desktop/mobile
+screenshots of the rating controls and generated outfits. Feedback persists across reload;
+rejection, reset, privacy clear, accessory inclusion and Evening ranking work. The standalone
+preview generated zero HTTP requests; no paid inference was attempted. Manual group-photo entry
+still works. Evidence: operations/free-outfit-testing-qa-2026-10-22.json.
+
+No hosted preview was deployed under the no-spend constraint. Public accounts and cross-device
+storage remain future work. Physical-device camera/install tests and online Archivo rendering
+remain unverified. This source checkpoint skips remote CI; local checks supply the validation.

@@ -1,5 +1,15 @@
 # Digital wardrobe and outfit suggestions
 
+22 October update: NO_SPEND.md supersedes the former activation instructions below. Automatic
+provider recognition is disabled even when credentials exist; the app makes no model requests.
+Manual group-photo marking and local outfit ideas remain available. Do not create keys or deploy
+services under the current instruction. The former provider adapter is recoverable from Git history.
+
+Outfit ideas now favours smarter Evening combinations, adds optional accessories, and stores
+Would wear / Not for me feedback locally. Disliked exact combinations are excluded; liked ones
+get a ranking bonus. Reset outfit feedback clears this, and privacy reset clears it with wardrobe
+data. Feedback never relaxes availability, occasion or selected-weather constraints.
+
 Owner requested multi-garment photos and recommendations from owned clothes on 19 October 2026.
 Implemented as an extension of the existing app, using GPT Taste and design.md; no Sites workflow.
 

@@ -52,6 +52,13 @@ changes. The standalone HTML removes manifest/touch-icon references and skips wo
 
 ## Wardrobe extension
 
+22 October update: NO_SPEND.md is the active cost policy. wardrobe-api.mjs is a disabled adapter
+returning enabled:false and refusing recognition before reading/transmitting a photo; credentials
+cannot activate it. The old provider implementation remains in Git history. No deployment exists.
+The settings store also saves up to 200 outfit feedback entries. These affect only local ranking
+and are removed by feedback reset or privacy reset. Later historical provider setup details are
+superseded by this policy.
+
 public/wardrobe-domain.js validates garment records/boxes and ranks owned-clothes combinations.
 public/wardrobe.js provides group-photo review, per-piece cropping, wardrobe CRUD and saved looks.
 public/wardrobe.css extends the existing visual system. public/wardrobe-samples.js supplies 16
