@@ -69,13 +69,20 @@ Remove/restore affects sample records only. Reset writes a seeding marker to pre
 reappearing after a privacy clear. Preferences use threadline:wardrobe-preferences. Full import photos are transient browser memory.
 Privacy reset clears this data; piece deletion removes dependent saved looks.
 
-wardrobe-api.mjs provides optional local-only recognition through AI Gateway's compatible HTTP API.
-GET /api/wardrobe/status reports configured/unconfigured without exposing credentials. POST
-/api/wardrobe/recognise validates consent, request shape, image size/magic and model JSON output.
-Server-only AI_GATEWAY_API_KEY / AI_GATEWAY_MODEL are loaded from uncommitted .env.local when
-running the Node entry point. No external SDK, server-side wardrobe storage or public endpoint
-authentication is added. This is not ready to expose as an unauthenticated paid inference endpoint.
-See operations/06-WARDROBE-AND-STYLING.md for setup, heuristics, quotas and verification limits.
+24 October: optional recognition runs inside public/wardrobe-recognition-worker.js using
+locally installed Transformers.js/OWL-ViT/WASM assets. The worker disables remote model
+loading; photos are transferred only to the on-device worker. public/wardrobe-recognition.js
+owns worker cancellation/timeouts; the domain adapter maps classes, clamps boxes and suppresses
+near-duplicates before existing validation/review. Closing import terminates the model worker.
+Non-detected attributes remain explicitly labelled editable defaults.
+
+GET /api/wardrobe/local-status checks local assets. The server serves a fixed public asset
+allowlist with model/runtime caching; no directory listing or arbitrary private-data access.
+The setup script pins runtime integrity and model revision. A ready marker is written only
+after all assets and notices are installed. Assets are ignored by Git and excluded from
+standalone HTML and the normal service-worker precache. The standalone retains manual entry.
+The old provider status/POST endpoints remain disabled under NO_SPEND.md. See README.md and
+operations/07-LOCAL-RECOGNITION.md. Real-photo accuracy and physical-phone testing are pending.
 
 ## Production boundary
 

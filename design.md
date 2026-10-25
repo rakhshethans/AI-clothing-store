@@ -138,3 +138,8 @@ IMPLEMENTATION REQUIREMENTS
 - Four desktop/two mobile product columns; touch-visible actions and no mobile hover effects.
 - Preserve per-photo garment sheets, posting, persistence, privacy and the budget planner.
 - Browser verification at desktop/mobile sizes before declaring completion.
+
+24 October: preserve the existing bone/ink import layout for optional experimental
+on-device recognition. Keep crops and garment fields editable; clearly identify
+non-detected attributes as defaults. Preserve manual import and mark the standalone
+file as manual-only. No new landing page, paid provider or cloud fallback.

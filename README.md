@@ -89,3 +89,25 @@ recorded in IMPLEMENTATION_LOG.md and operations/social-browser-qa-2026-10-19.js
 
 Read PRODUCT_SPEC.md, EXPLORE_PLAN.md, ARCHITECTURE.md and CONTRIBUTING.md before changing scope.
 The original business/data-rights research remains in operations/.
+
+## Free experimental recognition on your device
+
+Run `node --use-system-ca scripts/setup-local-recognition.mjs` once, then
+`node server.mjs` and open http://127.0.0.1:4187/#wardrobe. Choose Add clothes,
+upload a group photo and choose Identify clothes on this device. Review and edit
+all crops, categories and attributes before saving. Manual marking remains available.
+
+The optional setup downloads public Transformers.js 3.8.1 assets (verified against
+its published SHA-512 integrity) and a pinned quantised OWL-ViT model to ignored
+`public/local-recognition/`. Total runtime/model assets are about 173 MiB. No account,
+API key or paid inference is used. Setup uses HTTPS with normal certificate checks;
+Node system CA support can be needed on Windows. Local inference has no remote-model
+fallback. The old provider endpoint remains disabled even with credentials present.
+
+This is experimental: missed pieces, incorrect categories and duplicate shoe boxes
+are possible. Colour, pattern, fit, dress level and weight are editable defaults,
+not model measurements. The standalone HTML keeps manual import; recognition needs
+the local server and installed model assets. Large models are excluded from the
+normal service-worker precache and from Git. Missing assets leave manual import
+available. Closing import terminates the worker and releases its model resources.
+Actual phone performance and a representative real-photo accuracy study are pending.

@@ -308,3 +308,39 @@ still works. Evidence: operations/free-outfit-testing-qa-2026-10-22.json.
 No hosted preview was deployed under the no-spend constraint. Public accounts and cross-device
 storage remain future work. Physical-device camera/install tests and online Archivo rendering
 remain unverified. This source checkpoint skips remote CI; local checks supply the validation.
+
+## Free local recognition investigation — 24 October 2026
+
+Compared browser OWL-ViT with fashion-specific YOLOS and Conditional DETR using
+primary documentation/model repositories. Recorded the candidate, local-only asset
+configuration, privacy/crop review integration and real-photo/mobile benchmark gates
+in operations/07-LOCAL-RECOGNITION.md. Public metadata downloads succeeded with
+Node system CA support; TLS verification was not disabled. No model inference or
+accuracy benchmark was performed. No runtime dependencies, UI or provider behavior
+changed; no paid calls, deployments or remote workflows were started. All four
+existing no-spend API guard tests pass.
+
+## Experimental on-device recognition — 24 October 2026
+
+Built optional local clothing detection using pinned Transformers.js 3.8.1 and a
+quantised OWL-ViT ONNX model. Free setup installs about 173 MiB outside Git. Runtime
+integrity is checked; model revision is pinned; a failed setup leaves readiness
+disabled. The model runs in a single-thread WASM browser worker with remote model
+loading disabled. No provider key or cloud fallback exists. Provider API guards stay
+unchanged. Added a static asset allowlist, readiness status, necessary WASM CSP/MIME
+support, worker cancellation/timeout and duplicate/bounds validation. Recognition
+drafts use the existing crop review/save flow. Non-detected attributes are clearly
+labelled editable defaults. Standalone/manual import remains available; no redesign.
+
+Actual Chrome inference on the existing AI-created editorial fixture plus a blank
+control took about 9.8 seconds for the two-photo batch: 17 draft boxes on the fixture,
+zero on blank. This is execution evidence, not real-photo accuracy or phone-speed
+evidence. Browser checks verified editing, saving cropped images, persistence after
+reload, cancellation/reopening, missing-assets manual fallback and no overflow at
+320/390/768/1440px. Inspected desktop/mobile screenshots. No POST requests or page
+errors; pre-existing font requests were blocked in QA. All 35 local tests and source
+syntax checks pass. Evidence: operations/local-recognition-qa-2026-10-24.json.
+
+Setup rerun verified integrity/hash reuse without re-downloading weights. No paid
+service, cloud resource or deployment was used. Remote CI must remain skipped when
+publishing. Representative real-photo accuracy and actual iPhone testing remain open.

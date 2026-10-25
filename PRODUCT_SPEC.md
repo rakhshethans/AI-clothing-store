@@ -4,7 +4,7 @@ Status: mobile social-shopping prototype, 19 October 2026. Working name, not tra
 
 22 October owner constraint: zero spending. Do not deploy or enable metered AI. Local outfit
 ranking, manual wardrobe entry, sample clothes and local feedback are the active testing route.
-Automatic recognition is disabled in code, even with credentials. NO_SPEND.md takes precedence
+Provider recognition is disabled in code, even with credentials. NO_SPEND.md takes precedence
 over older activation notes. No cloud project or deployment was created.
 
 ## Latest owner direction
@@ -73,11 +73,12 @@ are original illustrations, not user-owned garments or recognition output. Remov
 affect sample records and their dependent saved looks only. Privacy reset prevents automatic
 reseeding on reload. Sample outfit suggestions are labelled as containing sample pieces.
 
-Automatic detection has a real server-side provider integration requiring AI_GATEWAY_API_KEY and
-an image/structured-output capable AI_GATEWAY_MODEL. Neither is configured in this environment;
-recognition remains explicitly unavailable rather than returning fabricated detections. Manual
-entry and local recommendations work independently. Live accuracy and provider retention need
-validation before launch. See operations/06-WARDROBE-AND-STYLING.md.
+24 October: experimental on-device detection is implemented for the local server preview,
+using optional free model/runtime downloads. Several garments can become editable crop drafts
+in one import; no photos are sent to a provider. It is not an accuracy-validated release.
+Review crops/categories and correct colour, pattern, fit, dress level and weight defaults before
+saving. Cancellation and manual fallback remain available. Standalone HTML uses manual entry.
+The paid provider endpoint remains blocked. See operations/07-LOCAL-RECOGNITION.md.
 
 ## Next production gates
 

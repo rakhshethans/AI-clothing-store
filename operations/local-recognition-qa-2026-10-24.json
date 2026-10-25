@@ -1,0 +1,34 @@
+{
+  "fixture": "Existing AI-created editorial image plus blank control. Actual model execution; not an accuracy benchmark.",
+  "paidApiCalls": 0,
+  "batchMilliseconds": 9833,
+  "status": "Review every crop and category. Colour, pattern, fit, dress level and weight are defaults: correct them before saving.",
+  "detections": 17,
+  "blankDetections": 0,
+  "persisted": {
+    "name": "Local recognition QA jacket",
+    "colour": "olive",
+    "category": "layer",
+    "imageStored": true
+  },
+  "cancelAndReopen": true,
+  "manualFallback": true,
+  "postRequests": [],
+  "pageErrors": [],
+  "externalRequests": [
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap",
+      "method": "GET"
+    },
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap",
+      "method": "GET"
+    },
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap",
+      "method": "GET"
+    }
+  ],
+  "externalRequestsNote": "Only pre-existing font requests; blocked during this test. Model/runtime requests stayed on loopback.",
+  "passed": true
+}

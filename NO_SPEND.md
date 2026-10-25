@@ -12,3 +12,9 @@ API credentials happen to be present. Multi-photo manual marking and local outfi
 remain available. Changing this policy requires the owner to explicitly change the spending
 constraint; a key or model setting alone is not approval. No cloud project or deployment was
 created during the 22 October setup inspection; only account/team/project lists were read.
+
+24 October 2026: optional experimental local recognition is allowed within the
+existing no-spend constraint. It uses downloaded public model/runtime assets and
+runs in a browser worker on the user's device. No provider requests, keys, cloud
+resources or hosting are enabled. This does not permit metered inference or a
+cloud fallback. Manual marking remains available when local assets are absent.

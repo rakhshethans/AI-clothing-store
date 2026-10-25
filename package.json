@@ -8,9 +8,10 @@
   },
   "scripts": {
     "start": "node server.mjs",
-    "test": "node scripts/build-standalone.mjs && node --test tests/domain.test.mjs tests/server.test.mjs tests/import.test.mjs tests/bundle.test.mjs tests/social.test.mjs tests/pwa.test.mjs tests/wardrobe.test.mjs tests/wardrobe-api.test.mjs",
+    "test": "node scripts/build-standalone.mjs && node --test tests/domain.test.mjs tests/server.test.mjs tests/import.test.mjs tests/bundle.test.mjs tests/social.test.mjs tests/pwa.test.mjs tests/wardrobe.test.mjs tests/wardrobe-api.test.mjs tests/local-recognition.test.mjs",
     "build": "node scripts/build-standalone.mjs",
-    "check": "node --check public/app.js && node --check public/domain.js && node --check public/catalog.js && node --check public/media.js && node --check public/motion.js && node --check server.mjs && node --check public/social.js && node --check public/social-domain.js && node --check public/pwa.js && node --check public/sw.js && node --check public/wardrobe.js && node --check public/wardrobe-samples.js && node --check public/wardrobe-domain.js && node --check wardrobe-api.mjs",
-    "import:catalog": "node scripts/import-catalog.mjs"
+    "check": "node --check public/app.js && node --check public/domain.js && node --check public/catalog.js && node --check public/media.js && node --check public/motion.js && node --check server.mjs && node --check public/social.js && node --check public/social-domain.js && node --check public/pwa.js && node --check public/sw.js && node --check public/wardrobe.js && node --check public/wardrobe-samples.js && node --check public/wardrobe-domain.js && node --check wardrobe-api.mjs && node --check public/wardrobe-recognition.js && node --check public/wardrobe-recognition-domain.js && node --check public/wardrobe-recognition-worker.js && node --check local-recognition-assets.mjs && node --check scripts/setup-local-recognition.mjs",
+    "import:catalog": "node scripts/import-catalog.mjs",
+    "setup:recognition": "node --use-system-ca scripts/setup-local-recognition.mjs"
   }
 }

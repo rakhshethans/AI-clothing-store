@@ -6,3 +6,5 @@ private-data/
 snapshots/
 *.staged
 Threadline.html
+
+public/local-recognition/
