@@ -1,0 +1,13 @@
+{
+  "environment": "Desktop Chrome with touch/mobile viewport and insecure HTTP origin. NOT an actual iPhone/Safari test.",
+  "secureContext": false,
+  "result": "2 candidate pieces in 4.9 seconds. Check every result against your photo.",
+  "crops": 2,
+  "exportHasNoPhoto": true,
+  "cancel": true,
+  "failureReport": true,
+  "pageErrors": [],
+  "postRequests": [],
+  "passed": true,
+  "physicalIPhoneTested": false
+}

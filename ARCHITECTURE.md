@@ -93,3 +93,11 @@ contracts, while retaining the pure domain and per-photo relationship model.
 
 Money remains integer GBP pence. Unknown stock and delivery are not treated as confirmed or free.
 The planner still enumerates bounded combinations and aggregates delivery once per retailer.
+
+26 October QA extension: /phone-check.html is an optional diagnostic with separate
+local-only camera/photo processing and a copyable report. It does not save wardrobe
+records or test installation. THREADLINE_LAN_TEST=1 explicitly binds the public
+preview to 0.0.0.0 for same-Wi-Fi device testing; without it the server still binds
+to 127.0.0.1. No photo-upload endpoint or paid fallback was added. The benchmark
+scripts keep dataset images and raw prediction artifacts under ignored private-data.
+See operations/08-REAL-PHOTO-TESTING.md for honest metrics and device-test limits.

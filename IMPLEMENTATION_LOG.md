@@ -344,3 +344,31 @@ syntax checks pass. Evidence: operations/local-recognition-qa-2026-10-24.json.
 Setup rerun verified integrity/hash reuse without re-downloading weights. No paid
 service, cloud resource or deployment was used. Remote CI must remain skipped when
 publishing. Representative real-photo accuracy and actual iPhone testing remain open.
+
+## Real photos and phone handoff — 26 October 2026
+
+Ran the unchanged local worker on a preselected 30-photo Fashionpedia validation
+sample, then a separate annotation-guided crop diagnostic. Full photos matched
+61/93 supported-category instances; guided crops matched 62/93. Target-annotation
+precision was 30.8% / 46.3%, with an important caveat: the labels omit some real
+spectator/background clothes. These figures are not all-visible-clothing precision.
+Blank controls returned no garments; model runs made no POST requests and no paid
+calls. Warm median desktop times were 2.59 s / 2.81 s. No confidence/NMS tuning or
+production model change was made based on these samples. The quality gates remain
+unmet; real flat lays and physical iPhone results remain open.
+
+Added reproducible private-data preparation, one-to-one box evaluation and benchmark
+scripts. Public photos and signed download URLs remain excluded from Git. Added a
+separate phone diagnostic with local processing, crop previews, cancellation and a
+copyable image-free report. This can be served on private Wi-Fi using the explicit
+THREADLINE_LAN_TEST flag; normal startup stays bound to loopback. Camera-format,
+memory, Safari and installation limitations are documented separately. The diagnostic
+was exercised on desktop Chrome with mobile/touch sizing and an insecure HTTP
+origin, not an actual iPhone. See operations/08-REAL-PHOTO-TESTING.md and its JSON
+reports. No paid service, cloud resource or deployment was used.
+
+Verification for the 26 October checkpoint: all 37 local Node tests and all source
+syntax checks pass. Mobile/desktop diagnostic screenshots were inspected. Touch-size
+reflow has no horizontal overflow at 320/390/768/1440px. The copyable report includes
+no photo; cancellation works. Browser QA recorded zero POST requests and zero page
+errors. Physical iPhone testing is explicitly not marked complete.

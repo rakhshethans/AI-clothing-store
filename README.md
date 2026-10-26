@@ -111,3 +111,17 @@ the local server and installed model assets. Large models are excluded from the
 normal service-worker precache and from Git. Missing assets leave manual import
 available. Closing import terminates the worker and releases its model resources.
 Actual phone performance and a representative real-photo accuracy study are pending.
+
+## Recognition testing and phone diagnostic
+
+The 30-photo real-image check found 61/93 labelled garments; the current model is
+still experimental and needs manual review. Background clothing and incorrect
+categories remain issues. See operations/08-REAL-PHOTO-TESTING.md for scoring,
+limitations and repeatable commands.
+
+For a physical iPhone check without paid hosting, that document explains the
+optional local-Wi-Fi diagnostic at /phone-check.html. It processes a camera/photo
+input locally and shows crops, timing and a copyable report containing no photo.
+LAN access is opt-in via THREADLINE_LAN_TEST=1; the default server is loopback-only.
+This diagnostic does not validate full-app installation or phone Safari performance
+until it has actually been run on the device.

@@ -143,3 +143,7 @@ IMPLEMENTATION REQUIREMENTS
 on-device recognition. Keep crops and garment fields editable; clearly identify
 non-detected attributes as defaults. Preserve manual import and mark the standalone
 file as manual-only. No new landing page, paid provider or cloud fallback.
+
+26 October: keep the optional phone-recognition diagnostic consistent with bone/ink,
+local font fallback, simple fields, touch-visible controls and full-colour crop
+previews. It is a QA page, not a new campaign or main navigation destination.

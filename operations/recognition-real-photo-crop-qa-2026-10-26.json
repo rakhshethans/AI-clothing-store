@@ -1,0 +1,1082 @@
+{
+  "date": "2026-10-26",
+  "dataset": "detection-datasets/fashionpedia",
+  "revision": "80845435ce686b8a9dbf70a05452fbfb8e09cdd7",
+  "selection": "First 30 validation rows, before running inference; no quality-based selection.",
+  "scope": "Supported garment categories only; garment parts and unsupported accessory types excluded.",
+  "preprocessing": "Annotation-guided target-outfit crop with 3% margin. Diagnostic oracle crop, not automatic subject selection.",
+  "environment": "Headless desktop Chrome, Windows, WASM CPU, viewport 390x844. This is NOT physical iPhone performance.",
+  "policy": {
+    "confidenceThreshold": 0.1,
+    "nmsIoU": 0.65,
+    "matchIoU": 0.5,
+    "noTuningOnThisSample": true
+  },
+  "summary": {
+    "photos": 30,
+    "expected": 93,
+    "predicted": 134,
+    "truePositives": 62,
+    "falsePositives": 72,
+    "falseNegatives": 31,
+    "duplicates": 1,
+    "byCategory": {
+      "layer": {
+        "expected": 7,
+        "predicted": 8,
+        "truePositives": 3,
+        "precision": 0.375,
+        "recall": 0.42857142857142855
+      },
+      "top": {
+        "expected": 17,
+        "predicted": 5,
+        "truePositives": 4,
+        "precision": 0.8,
+        "recall": 0.23529411764705882
+      },
+      "onepiece": {
+        "expected": 12,
+        "predicted": 29,
+        "truePositives": 11,
+        "precision": 0.3793103448275862,
+        "recall": 0.9166666666666666
+      },
+      "bottom": {
+        "expected": 15,
+        "predicted": 29,
+        "truePositives": 12,
+        "precision": 0.41379310344827586,
+        "recall": 0.8
+      },
+      "accessory": {
+        "expected": 4,
+        "predicted": 18,
+        "truePositives": 3,
+        "precision": 0.16666666666666666,
+        "recall": 0.75
+      },
+      "shoes": {
+        "expected": 38,
+        "predicted": 45,
+        "truePositives": 29,
+        "precision": 0.6444444444444445,
+        "recall": 0.7631578947368421
+      }
+    },
+    "precision": 0.4626865671641791,
+    "recall": 0.6666666666666666
+  },
+  "multiGarmentPhotos": {
+    "photos": 26,
+    "expected": 89,
+    "predicted": 128,
+    "truePositives": 58,
+    "falsePositives": 70,
+    "falseNegatives": 31,
+    "duplicates": 1,
+    "byCategory": {
+      "layer": {
+        "expected": 7,
+        "predicted": 8,
+        "truePositives": 3,
+        "precision": 0.375,
+        "recall": 0.42857142857142855
+      },
+      "top": {
+        "expected": 16,
+        "predicted": 4,
+        "truePositives": 3,
+        "precision": 0.75,
+        "recall": 0.1875
+      },
+      "onepiece": {
+        "expected": 9,
+        "predicted": 26,
+        "truePositives": 8,
+        "precision": 0.3076923076923077,
+        "recall": 0.8888888888888888
+      },
+      "bottom": {
+        "expected": 15,
+        "predicted": 27,
+        "truePositives": 12,
+        "precision": 0.4444444444444444,
+        "recall": 0.8
+      },
+      "accessory": {
+        "expected": 4,
+        "predicted": 18,
+        "truePositives": 3,
+        "precision": 0.16666666666666666,
+        "recall": 0.75
+      },
+      "shoes": {
+        "expected": 38,
+        "predicted": 45,
+        "truePositives": 29,
+        "precision": 0.6444444444444445,
+        "recall": 0.7631578947368421
+      }
+    },
+    "precision": 0.453125,
+    "recall": 0.651685393258427
+  },
+  "coldMilliseconds": 5521,
+  "warmMedianMilliseconds": 2810,
+  "warmP95Milliseconds": 3583,
+  "blankDetections": 0,
+  "modelAssetBytes": 181574120,
+  "postRequests": [],
+  "pageErrors": [],
+  "blockedExternalOrigins": [
+    "https://fonts.googleapis.com"
+  ],
+  "paidApiCalls": 0,
+  "physicalIPhoneTested": false,
+  "limitations": [
+    "Real worn-outfit images; flat-lay piles and user phone photos are untested.",
+    "Only supported garment categories scored. Dataset garment-part annotations are excluded.",
+    "Broad app categories scored, not fine-grained clothing subtypes.",
+    "Annotation/box differences can count as errors; raw fixtures remain private.",
+    "Dataset annotations focus on the main outfit. Some unmatched predictions are real spectator/background clothes, so precision is target-outfit agreement, not all-visible-clothing accuracy.",
+    "No calibrated confidence, colour/fit/weight accuracy, or human correction-time measurement."
+  ],
+  "perPhoto": [
+    {
+      "id": "2083",
+      "row": 0,
+      "milliseconds": 5521,
+      "expected": 2,
+      "predicted": 4,
+      "truePositives": 2,
+      "falsePositives": 2,
+      "falseNegatives": 0,
+      "duplicates": 0,
+      "byCategory": {
+        "layer": {
+          "expected": 1,
+          "predicted": 1,
+          "truePositives": 1
+        },
+        "top": {
+          "expected": 1,
+          "predicted": 1,
+          "truePositives": 1
+        },
+        "onepiece": {
+          "expected": 0,
+          "predicted": 1,
+          "truePositives": 0
+        },
+        "bottom": {
+          "expected": 0,
+          "predicted": 1,
+          "truePositives": 0
+        }
+      }
+    },
+    {
+      "id": "5593",
+      "row": 1,
+      "milliseconds": 2835,
+      "expected": 2,
+      "predicted": 5,
+      "truePositives": 2,
+      "falsePositives": 3,
+      "falseNegatives": 0,
+      "duplicates": 0,
+      "byCategory": {
+        "accessory": {
+          "expected": 1,
+          "predicted": 3,
+          "truePositives": 1
+        },
+        "onepiece": {
+          "expected": 1,
+          "predicted": 1,
+          "truePositives": 1
+        },
+        "bottom": {
+          "expected": 0,
+          "predicted": 1,
+          "truePositives": 0
+        }
+      }
+    },
+    {
+      "id": "6410",
+      "row": 2,
+      "milliseconds": 2755,
+      "expected": 4,
+      "predicted": 5,
+      "truePositives": 4,
+      "falsePositives": 1,
+      "falseNegatives": 0,
+      "duplicates": 0,
+      "byCategory": {
+        "shoes": {
+          "expected": 2,
+          "predicted": 2,
+          "truePositives": 2
+        },
+        "bottom": {
+          "expected": 1,
+          "predicted": 1,
+          "truePositives": 1
+        },
+        "layer": {
+          "expected": 1,
+          "predicted": 1,
+          "truePositives": 1
+        },
+        "onepiece": {
+          "expected": 0,
+          "predicted": 1,
+          "truePositives": 0
+        }
+      }
+    },
+    {
+      "id": "7487",
+      "row": 3,
+      "milliseconds": 2684,
+      "expected": 4,
+      "predicted": 4,
+      "truePositives": 3,
+      "falsePositives": 1,
+      "falseNegatives": 1,
+      "duplicates": 0,
+      "byCategory": {
+        "top": {
+          "expected": 1,
+          "predicted": 0,
+          "truePositives": 0
+        },
+        "shoes": {
+          "expected": 2,
+          "predicted": 2,
+          "truePositives": 2
+        },
+        "bottom": {
+          "expected": 1,
+          "predicted": 1,
+          "truePositives": 1
+        },
+        "onepiece": {
+          "expected": 0,
+          "predicted": 1,
+          "truePositives": 0
+        }
+      }
+    },
+    {
+      "id": "7731",
+      "row": 4,
+      "milliseconds": 2660,
+      "expected": 5,
+      "predicted": 4,
+      "truePositives": 2,
+      "falsePositives": 2,
+      "falseNegatives": 3,
+      "duplicates": 0,
+      "byCategory": {
+        "bottom": {
+          "expected": 1,
+          "predicted": 0,
+          "truePositives": 0
+        },
+        "top": {
+          "expected": 1,
+          "predicted": 0,
+          "truePositives": 0
+        },
+        "layer": {
+          "expected": 1,
+          "predicted": 0,
+          "truePositives": 0
+        },
+        "shoes": {
+          "expected": 2,
+          "predicted": 3,
+          "truePositives": 2
+        },
+        "onepiece": {
+          "expected": 0,
+          "predicted": 1,
+          "truePositives": 0
+        }
+      }
+    },
+    {
+      "id": "7780",
+      "row": 5,
+      "milliseconds": 2774,
+      "expected": 3,
+      "predicted": 3,
+      "truePositives": 1,
+      "falsePositives": 2,
+      "falseNegatives": 2,
+      "duplicates": 0,
+      "byCategory": {
+        "bottom": {
+          "expected": 1,
+          "predicted": 1,
+          "truePositives": 1
+        },
+        "top": {
+          "expected": 2,
+          "predicted": 0,
+          "truePositives": 0
+        },
+        "onepiece": {
+          "expected": 0,
+          "predicted": 2,
+          "truePositives": 0
+        }
+      }
+    },
+    {
+      "id": "8081",
+      "row": 6,
+      "milliseconds": 2749,
+      "expected": 4,
+      "predicted": 4,
+      "truePositives": 3,
+      "falsePositives": 1,
+      "falseNegatives": 1,
+      "duplicates": 0,
+      "byCategory": {
+        "bottom": {
+          "expected": 1,
+          "predicted": 1,
+          "truePositives": 1
+        },
+        "top": {
+          "expected": 1,
+          "predicted": 0,
+          "truePositives": 0
+        },
+        "accessory": {
+          "expected": 1,
+          "predicted": 2,
+          "truePositives": 1
+        },
+        "layer": {
+          "expected": 1,
+          "predicted": 1,
+          "truePositives": 1
+        }
+      }
+    },
+    {
+      "id": "8337",
+      "row": 7,
+      "milliseconds": 2786,
+      "expected": 5,
+      "predicted": 5,
+      "truePositives": 2,
+      "falsePositives": 3,
+      "falseNegatives": 3,
+      "duplicates": 0,
+      "byCategory": {
+        "accessory": {
+          "expected": 1,
+          "predicted": 2,
+          "truePositives": 1
+        },
+        "top": {
+          "expected": 1,
+          "predicted": 0,
+          "truePositives": 0
+        },
+        "bottom": {
+          "expected": 1,
+          "predicted": 1,
+          "truePositives": 1
+        },
+        "shoes": {
+          "expected": 2,
+          "predicted": 0,
+          "truePositives": 0
+        },
+        "onepiece": {
+          "expected": 0,
+          "predicted": 1,
+          "truePositives": 0
+        },
+        "layer": {
+          "expected": 0,
+          "predicted": 1,
+          "truePositives": 0
+        }
+      }
+    },
+    {
+      "id": "8457",
+      "row": 8,
+      "milliseconds": 2813,
+      "expected": 3,
+      "predicted": 8,
+      "truePositives": 3,
+      "falsePositives": 5,
+      "falseNegatives": 0,
+      "duplicates": 0,
+      "byCategory": {
+        "onepiece": {
+          "expected": 1,
+          "predicted": 1,
+          "truePositives": 1
+        },
+        "shoes": {
+          "expected": 2,
+          "predicted": 2,
+          "truePositives": 2
+        },
+        "bottom": {
+          "expected": 0,
+          "predicted": 1,
+          "truePositives": 0
+        },
+        "accessory": {
+          "expected": 0,
+          "predicted": 4,
+          "truePositives": 0
+        }
+      }
+    },
+    {
+      "id": "8519",
+      "row": 9,
+      "milliseconds": 2881,
+      "expected": 2,
+      "predicted": 2,
+      "truePositives": 2,
+      "falsePositives": 0,
+      "falseNegatives": 0,
+      "duplicates": 0,
+      "byCategory": {
+        "shoes": {
+          "expected": 1,
+          "predicted": 1,
+          "truePositives": 1
+        },
+        "onepiece": {
+          "expected": 1,
+          "predicted": 1,
+          "truePositives": 1
+        }
+      }
+    },
+    {
+      "id": "8554",
+      "row": 10,
+      "milliseconds": 2919,
+      "expected": 4,
+      "predicted": 4,
+      "truePositives": 2,
+      "falsePositives": 2,
+      "falseNegatives": 2,
+      "duplicates": 0,
+      "byCategory": {
+        "top": {
+          "expected": 1,
+          "predicted": 0,
+          "truePositives": 0
+        },
+        "shoes": {
+          "expected": 2,
+          "predicted": 2,
+          "truePositives": 1
+        },
+        "bottom": {
+          "expected": 1,
+          "predicted": 1,
+          "truePositives": 1
+        },
+        "onepiece": {
+          "expected": 0,
+          "predicted": 1,
+          "truePositives": 0
+        }
+      }
+    },
+    {
+      "id": "8597",
+      "row": 11,
+      "milliseconds": 3619,
+      "expected": 1,
+      "predicted": 1,
+      "truePositives": 1,
+      "falsePositives": 0,
+      "falseNegatives": 0,
+      "duplicates": 0,
+      "byCategory": {
+        "onepiece": {
+          "expected": 1,
+          "predicted": 1,
+          "truePositives": 1
+        }
+      }
+    },
+    {
+      "id": "8610",
+      "row": 12,
+      "milliseconds": 3031,
+      "expected": 2,
+      "predicted": 4,
+      "truePositives": 1,
+      "falsePositives": 3,
+      "falseNegatives": 1,
+      "duplicates": 0,
+      "byCategory": {
+        "bottom": {
+          "expected": 1,
+          "predicted": 1,
+          "truePositives": 1
+        },
+        "top": {
+          "expected": 1,
+          "predicted": 0,
+          "truePositives": 0
+        },
+        "layer": {
+          "expected": 0,
+          "predicted": 2,
+          "truePositives": 0
+        },
+        "shoes": {
+          "expected": 0,
+          "predicted": 1,
+          "truePositives": 0
+        }
+      }
+    },
+    {
+      "id": "8671",
+      "row": 13,
+      "milliseconds": 3583,
+      "expected": 5,
+      "predicted": 5,
+      "truePositives": 3,
+      "falsePositives": 2,
+      "falseNegatives": 2,
+      "duplicates": 0,
+      "byCategory": {
+        "shoes": {
+          "expected": 2,
+          "predicted": 2,
+          "truePositives": 2
+        },
+        "bottom": {
+          "expected": 1,
+          "predicted": 2,
+          "truePositives": 1
+        },
+        "top": {
+          "expected": 1,
+          "predicted": 0,
+          "truePositives": 0
+        },
+        "accessory": {
+          "expected": 1,
+          "predicted": 0,
+          "truePositives": 0
+        },
+        "layer": {
+          "expected": 0,
+          "predicted": 1,
+          "truePositives": 0
+        }
+      }
+    },
+    {
+      "id": "8712",
+      "row": 14,
+      "milliseconds": 3322,
+      "expected": 4,
+      "predicted": 3,
+      "truePositives": 2,
+      "falsePositives": 1,
+      "falseNegatives": 2,
+      "duplicates": 0,
+      "byCategory": {
+        "bottom": {
+          "expected": 1,
+          "predicted": 0,
+          "truePositives": 0
+        },
+        "top": {
+          "expected": 1,
+          "predicted": 0,
+          "truePositives": 0
+        },
+        "shoes": {
+          "expected": 2,
+          "predicted": 2,
+          "truePositives": 2
+        },
+        "onepiece": {
+          "expected": 0,
+          "predicted": 1,
+          "truePositives": 0
+        }
+      }
+    },
+    {
+      "id": "8810",
+      "row": 15,
+      "milliseconds": 2920,
+      "expected": 4,
+      "predicted": 5,
+      "truePositives": 4,
+      "falsePositives": 1,
+      "falseNegatives": 0,
+      "duplicates": 0,
+      "byCategory": {
+        "top": {
+          "expected": 1,
+          "predicted": 1,
+          "truePositives": 1
+        },
+        "bottom": {
+          "expected": 1,
+          "predicted": 1,
+          "truePositives": 1
+        },
+        "shoes": {
+          "expected": 2,
+          "predicted": 2,
+          "truePositives": 2
+        },
+        "onepiece": {
+          "expected": 0,
+          "predicted": 1,
+          "truePositives": 0
+        }
+      }
+    },
+    {
+      "id": "8875",
+      "row": 16,
+      "milliseconds": 2810,
+      "expected": 4,
+      "predicted": 5,
+      "truePositives": 2,
+      "falsePositives": 3,
+      "falseNegatives": 2,
+      "duplicates": 0,
+      "byCategory": {
+        "bottom": {
+          "expected": 1,
+          "predicted": 0,
+          "truePositives": 0
+        },
+        "shoes": {
+          "expected": 2,
+          "predicted": 2,
+          "truePositives": 2
+        },
+        "top": {
+          "expected": 1,
+          "predicted": 0,
+          "truePositives": 0
+        },
+        "onepiece": {
+          "expected": 0,
+          "predicted": 1,
+          "truePositives": 0
+        },
+        "accessory": {
+          "expected": 0,
+          "predicted": 2,
+          "truePositives": 0
+        }
+      }
+    },
+    {
+      "id": "8902",
+      "row": 17,
+      "milliseconds": 2673,
+      "expected": 3,
+      "predicted": 2,
+      "truePositives": 1,
+      "falsePositives": 1,
+      "falseNegatives": 2,
+      "duplicates": 0,
+      "byCategory": {
+        "onepiece": {
+          "expected": 1,
+          "predicted": 1,
+          "truePositives": 1
+        },
+        "shoes": {
+          "expected": 2,
+          "predicted": 1,
+          "truePositives": 0
+        }
+      }
+    },
+    {
+      "id": "8935",
+      "row": 18,
+      "milliseconds": 2678,
+      "expected": 4,
+      "predicted": 8,
+      "truePositives": 2,
+      "falsePositives": 6,
+      "falseNegatives": 2,
+      "duplicates": 1,
+      "byCategory": {
+        "layer": {
+          "expected": 1,
+          "predicted": 0,
+          "truePositives": 0
+        },
+        "shoes": {
+          "expected": 3,
+          "predicted": 5,
+          "truePositives": 2
+        },
+        "bottom": {
+          "expected": 0,
+          "predicted": 2,
+          "truePositives": 0
+        },
+        "onepiece": {
+          "expected": 0,
+          "predicted": 1,
+          "truePositives": 0
+        }
+      }
+    },
+    {
+      "id": "8947",
+      "row": 19,
+      "milliseconds": 2597,
+      "expected": 3,
+      "predicted": 4,
+      "truePositives": 2,
+      "falsePositives": 2,
+      "falseNegatives": 1,
+      "duplicates": 0,
+      "byCategory": {
+        "shoes": {
+          "expected": 2,
+          "predicted": 2,
+          "truePositives": 1
+        },
+        "onepiece": {
+          "expected": 1,
+          "predicted": 1,
+          "truePositives": 1
+        },
+        "bottom": {
+          "expected": 0,
+          "predicted": 1,
+          "truePositives": 0
+        }
+      }
+    },
+    {
+      "id": "8950",
+      "row": 20,
+      "milliseconds": 2622,
+      "expected": 5,
+      "predicted": 6,
+      "truePositives": 3,
+      "falsePositives": 3,
+      "falseNegatives": 2,
+      "duplicates": 0,
+      "byCategory": {
+        "bottom": {
+          "expected": 1,
+          "predicted": 2,
+          "truePositives": 1
+        },
+        "top": {
+          "expected": 1,
+          "predicted": 1,
+          "truePositives": 0
+        },
+        "layer": {
+          "expected": 1,
+          "predicted": 0,
+          "truePositives": 0
+        },
+        "shoes": {
+          "expected": 2,
+          "predicted": 2,
+          "truePositives": 2
+        },
+        "onepiece": {
+          "expected": 0,
+          "predicted": 1,
+          "truePositives": 0
+        }
+      }
+    },
+    {
+      "id": "8955",
+      "row": 21,
+      "milliseconds": 2437,
+      "expected": 3,
+      "predicted": 13,
+      "truePositives": 3,
+      "falsePositives": 10,
+      "falseNegatives": 0,
+      "duplicates": 0,
+      "byCategory": {
+        "onepiece": {
+          "expected": 1,
+          "predicted": 3,
+          "truePositives": 1
+        },
+        "shoes": {
+          "expected": 2,
+          "predicted": 4,
+          "truePositives": 2
+        },
+        "bottom": {
+          "expected": 0,
+          "predicted": 4,
+          "truePositives": 0
+        },
+        "accessory": {
+          "expected": 0,
+          "predicted": 2,
+          "truePositives": 0
+        }
+      }
+    },
+    {
+      "id": "8971",
+      "row": 22,
+      "milliseconds": 2619,
+      "expected": 4,
+      "predicted": 6,
+      "truePositives": 2,
+      "falsePositives": 4,
+      "falseNegatives": 2,
+      "duplicates": 0,
+      "byCategory": {
+        "onepiece": {
+          "expected": 1,
+          "predicted": 2,
+          "truePositives": 1
+        },
+        "layer": {
+          "expected": 1,
+          "predicted": 0,
+          "truePositives": 0
+        },
+        "shoes": {
+          "expected": 2,
+          "predicted": 3,
+          "truePositives": 1
+        },
+        "bottom": {
+          "expected": 0,
+          "predicted": 1,
+          "truePositives": 0
+        }
+      }
+    },
+    {
+      "id": "8976",
+      "row": 23,
+      "milliseconds": 2738,
+      "expected": 2,
+      "predicted": 2,
+      "truePositives": 1,
+      "falsePositives": 1,
+      "falseNegatives": 1,
+      "duplicates": 0,
+      "byCategory": {
+        "top": {
+          "expected": 1,
+          "predicted": 0,
+          "truePositives": 0
+        },
+        "bottom": {
+          "expected": 1,
+          "predicted": 1,
+          "truePositives": 1
+        },
+        "onepiece": {
+          "expected": 0,
+          "predicted": 1,
+          "truePositives": 0
+        }
+      }
+    },
+    {
+      "id": "8980",
+      "row": 24,
+      "milliseconds": 3294,
+      "expected": 1,
+      "predicted": 2,
+      "truePositives": 1,
+      "falsePositives": 1,
+      "falseNegatives": 0,
+      "duplicates": 0,
+      "byCategory": {
+        "top": {
+          "expected": 1,
+          "predicted": 1,
+          "truePositives": 1
+        },
+        "bottom": {
+          "expected": 0,
+          "predicted": 1,
+          "truePositives": 0
+        }
+      }
+    },
+    {
+      "id": "8985",
+      "row": 25,
+      "milliseconds": 2961,
+      "expected": 3,
+      "predicted": 8,
+      "truePositives": 1,
+      "falsePositives": 7,
+      "falseNegatives": 2,
+      "duplicates": 0,
+      "byCategory": {
+        "onepiece": {
+          "expected": 1,
+          "predicted": 0,
+          "truePositives": 0
+        },
+        "shoes": {
+          "expected": 2,
+          "predicted": 5,
+          "truePositives": 1
+        },
+        "bottom": {
+          "expected": 0,
+          "predicted": 1,
+          "truePositives": 0
+        },
+        "layer": {
+          "expected": 0,
+          "predicted": 1,
+          "truePositives": 0
+        },
+        "accessory": {
+          "expected": 0,
+          "predicted": 1,
+          "truePositives": 0
+        }
+      }
+    },
+    {
+      "id": "8988",
+      "row": 26,
+      "milliseconds": 3511,
+      "expected": 1,
+      "predicted": 2,
+      "truePositives": 1,
+      "falsePositives": 1,
+      "falseNegatives": 0,
+      "duplicates": 0,
+      "byCategory": {
+        "onepiece": {
+          "expected": 1,
+          "predicted": 1,
+          "truePositives": 1
+        },
+        "bottom": {
+          "expected": 0,
+          "predicted": 1,
+          "truePositives": 0
+        }
+      }
+    },
+    {
+      "id": "9014",
+      "row": 27,
+      "milliseconds": 2963,
+      "expected": 2,
+      "predicted": 4,
+      "truePositives": 2,
+      "falsePositives": 2,
+      "falseNegatives": 0,
+      "duplicates": 0,
+      "byCategory": {
+        "bottom": {
+          "expected": 1,
+          "predicted": 1,
+          "truePositives": 1
+        },
+        "top": {
+          "expected": 1,
+          "predicted": 1,
+          "truePositives": 1
+        },
+        "onepiece": {
+          "expected": 0,
+          "predicted": 1,
+          "truePositives": 0
+        },
+        "accessory": {
+          "expected": 0,
+          "predicted": 1,
+          "truePositives": 0
+        }
+      }
+    },
+    {
+      "id": "9016",
+      "row": 28,
+      "milliseconds": 2951,
+      "expected": 1,
+      "predicted": 1,
+      "truePositives": 1,
+      "falsePositives": 0,
+      "falseNegatives": 0,
+      "duplicates": 0,
+      "byCategory": {
+        "onepiece": {
+          "expected": 1,
+          "predicted": 1,
+          "truePositives": 1
+        }
+      }
+    },
+    {
+      "id": "9018",
+      "row": 29,
+      "milliseconds": 2590,
+      "expected": 3,
+      "predicted": 5,
+      "truePositives": 3,
+      "falsePositives": 2,
+      "falseNegatives": 0,
+      "duplicates": 0,
+      "byCategory": {
+        "shoes": {
+          "expected": 2,
+          "predicted": 2,
+          "truePositives": 2
+        },
+        "onepiece": {
+          "expected": 1,
+          "predicted": 1,
+          "truePositives": 1
+        },
+        "bottom": {
+          "expected": 0,
+          "predicted": 1,
+          "truePositives": 0
+        },
+        "accessory": {
+          "expected": 0,
+          "predicted": 1,
+          "truePositives": 0
+        }
+      }
+    }
+  ]
+}
