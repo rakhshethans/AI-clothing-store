@@ -57,3 +57,8 @@ export function hasImageDetail(data,channels=3){
  for(let i=0;i<data.length;i+=channels)for(let c=0;c<3;c++){const value=data[i+c];if(!Number.isFinite(value)||value<0||value>255)throw Error('Invalid image pixels.');min[c]=Math.min(min[c],value);max[c]=Math.max(max[c],value);if(max[c]-min[c]>=policy.minimumSpatialRange)return true;}
  return false;
 }
+
+// Bound CPU/memory use. Insecure LAN pages and unsupported browsers stay single-threaded.
+export function recognitionThreadCount({isolated=false,sharedMemory=false,cores=1}={}){
+ return isolated===true&&sharedMemory===true&&Number.isFinite(cores)&&cores>=4?2:1;
+}

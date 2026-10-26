@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-26",
+  "comparison": "Same source model, weights, thresholds, preprocessing and photos; single vs two WASM CPU threads.",
+  "predictionComparison": "Deep equality of all model-derived candidate fields for each photograph. Reference annotations used only in the offline metric evaluator.",
+  "results": [
+    {
+      "role": "development",
+      "photos": 30,
+      "exactPredictionEquality": true,
+      "metricsUnchanged": true,
+      "correctMatches": 83,
+      "labelledGarments": 93,
+      "previousWarmMedianMilliseconds": 8835,
+      "warmMedianMilliseconds": 4327,
+      "speedup": 2.041830367460134,
+      "coldMilliseconds": 6529,
+      "warmP95Milliseconds": 4752
+    },
+    {
+      "role": "validation",
+      "photos": 30,
+      "exactPredictionEquality": true,
+      "metricsUnchanged": true,
+      "correctMatches": 90,
+      "labelledGarments": 99,
+      "previousWarmMedianMilliseconds": 8757,
+      "warmMedianMilliseconds": 4544,
+      "speedup": 1.927156690140845,
+      "coldMilliseconds": 7040,
+      "warmP95Milliseconds": 5073
+    }
+  ],
+  "physicalPhoneTested": false,
+  "paidApiCalls": 0
+}

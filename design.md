@@ -152,3 +152,8 @@ previews. It is a QA page, not a new campaign or main navigation destination.
 colour crops. The clothing model uses broad honest names; keep the warning that
 background clothes can appear and non-detected attributes require review. No new
 campaign, landing page, paid service or cloud fallback.
+
+26 October performance pass: retain the current wardrobe/import interface and full-
+colour images. CPU-thread selection, request queuing and detection provenance are
+internal behaviour. Phone diagnostic reports may include requested thread count.
+No new campaign, landing page, paid service or invented garment result.

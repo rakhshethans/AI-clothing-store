@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {localGarmentDrafts,garmentPredictions,recognitionImageSize,hasImageDetail} from '../public/wardrobe-recognition-domain.js';
+import {localGarmentDrafts,garmentPredictions,recognitionImageSize,hasImageDetail,recognitionThreadCount} from '../public/wardrobe-recognition-domain.js';
 import {validateDetections} from '../public/wardrobe-domain.js';
 const prediction=(label,score,box)=>({label,score,box});
 const box={xmin:10,ymin:20,xmax:50,ymax:80};
@@ -48,4 +48,10 @@ test('model resizing preserves aspect and enforces finite bounded dimensions',()
 
 test('flat colour controls have no garment evidence; real edges remain eligible',()=>{
  assert.equal(hasImageDetail(new Uint8Array([255,255,255,255,255,255])),false);assert.equal(hasImageDetail(new Uint8Array([255,0,0,255,0,0])),false);assert.equal(hasImageDetail(new Uint8Array([0,0,0,2,0,0])),true);assert.throws(()=>hasImageDetail([]));
+});
+
+test('CPU parallelism requires isolation and shared memory and stays bounded',()=>{
+ assert.equal(recognitionThreadCount(),1);
+ assert.equal(recognitionThreadCount({isolated:true,sharedMemory:true,cores:16}),2);
+ for(const options of [{isolated:false,sharedMemory:true,cores:16},{isolated:true,sharedMemory:false,cores:16},{isolated:true,sharedMemory:true,cores:2},{isolated:true,sharedMemory:true,cores:NaN}])assert.equal(recognitionThreadCount(options),1);
 });

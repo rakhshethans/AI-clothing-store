@@ -114,3 +114,12 @@ Ready manifest v2 includes the engine, source revision and per-file hashes/sizes
 assets do not enable the new worker. Only fixed public asset paths are served. Browser
 inference stays local; provider inference remains disabled. Cache v11 covers small JS
 dependencies, not model weights. See operations/09-CLOTHING-RECOGNITION-UPGRADE.md.
+
+26 October performance update: the server sets COOP same-origin and COEP
+credentialless. Isolated workers with shared memory and >=4 reported logical cores
+request two WASM threads, otherwise one. No weights, detection policy or model
+inputs changed. The controller now queues requests, matches reply IDs and settles
+all work on cancellation/error. Only image pixels enter inference; reply IDs are
+routing data. Benchmark labels stay exclusively in the evaluator; annotation-guided
+input cropping is no longer supported. Phone diagnostics report requested threads.
+Cache v12 covers updated small files. See operations/10-RECOGNITION-PERFORMANCE.md.

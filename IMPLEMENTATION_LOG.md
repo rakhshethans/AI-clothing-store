@@ -412,3 +412,25 @@ horizontal overflow. Setup rerun verified and reused the installed artifact hash
 Uniform controls return zero candidates without any model-weight requests. Physical
 iPhone and realistic flat-lay performance remain unverified. Source publication
 skips remote CI and includes no downloaded weights, packages or evaluation photos.
+
+## 26 October 2026 - free local inference performance and integrity
+
+Two bounded WASM CPU threads reduce warm desktop medians from 8.835/8.757 seconds
+to 4.327/4.544 seconds on development/reserved 30-photo runs. All 60 candidate
+arrays are exactly equal to the previous single-thread results (83/93 and 90/99
+labelled matches). Model weights, threshold, resolution and class-aware NMS stay
+unchanged. Smaller/larger native resize trials did not justify a detection change.
+
+The server enables cross-origin isolation with COOP/credentialless COEP. The worker
+uses a single thread without isolation/shared memory/four reported logical cores;
+actual non-isolated fallback inference passed. No phone performance claim is made.
+The controller now serialises requests, rejects/settles cancellation and worker
+errors, and ignores stale replies. Renaming identical image bytes with conflicting
+garment names gives identical model outputs. Reference annotations never enter
+browser inference; the former annotation-guided crop diagnostic flag is rejected.
+
+All 45 Node tests, syntax checks, standalone build and actual import/edit/save/
+reload/cancel/manual-fallback checks pass. No width overflow at 320/390/768/1440px,
+photo POSTs, unexpected remote requests or page errors. Full-colour crops retained.
+No paid service or deployment; source checkpoint skips remote CI. Evidence and
+reproduction commands are in operations/10-RECOGNITION-PERFORMANCE.md.

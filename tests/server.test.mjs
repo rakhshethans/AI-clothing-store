@@ -7,7 +7,7 @@ async function request(url,method='GET'){
   await handleRequest({url,method},response);return result;
 }
 test('server handler shell, privacy boundaries, redirects and health without external sockets',async()=>{
-    const page=await request('/');assert.equal(page.status,200);assert.match(page.body,/sample products/i);assert.match(page.headers['content-security-policy'],/connect-src 'self'/);
+    const page=await request('/');assert.equal(page.status,200);assert.equal(page.headers['cross-origin-opener-policy'],'same-origin');assert.equal(page.headers['cross-origin-embedder-policy'],'credentialless');assert.match(page.body,/sample products/i);assert.match(page.headers['content-security-policy'],/connect-src 'self'/);
     const health=JSON.parse((await request('/health')).body);assert.equal(health.products,48);
     assert.equal((await request('/PRODUCT_SPEC.md')).status,404);
     assert.equal((await request('/api/upload','POST')).status,405);

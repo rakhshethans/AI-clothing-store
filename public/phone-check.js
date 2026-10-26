@@ -1,4 +1,6 @@
 import {recogniseLocalPhoto,stopLocalRecognition} from './wardrobe-recognition.js';
+import {recognitionThreadCount} from './wardrobe-recognition-domain.js';
+const runtimeCapabilities=()=>({crossOriginIsolated,hardwareConcurrency:navigator.hardwareConcurrency,requestedWasmThreads:recognitionThreadCount({isolated:crossOriginIsolated,sharedMemory:typeof SharedArrayBuffer!=='undefined',cores:navigator.hardwareConcurrency})});
 const find=id=>document.getElementById(id);
 let aborter=null,lastReport=null,busy=false,assets=null;
 function idle(){busy=false;find('run').disabled=!assets?.enabled;find('photo').disabled=false;find('cancel').disabled=true;}
@@ -24,7 +26,7 @@ find('phone-form').onsubmit=async event=>{
    const b=item.box;crop.width=Math.max(1,Math.round(b.width*canvas.width));crop.height=Math.max(1,Math.round(b.height*canvas.height));crop.getContext('2d').drawImage(canvas,b.x*canvas.width,b.y*canvas.height,b.width*canvas.width,b.height*canvas.height,0,0,crop.width,crop.height);
    image.src=crop.toDataURL('image/jpeg',.85);image.alt=item.name;title.textContent=item.name;score.textContent=item.category+' · score '+item.confidence.toFixed(2);article.append(image,title,score);find('results').append(article);
   }
-  lastReport={timestamp:new Date().toISOString(),userAgent:navigator.userAgent,secureContext:isSecureContext,mode:'local-wasm-experimental',engine:assets.engine,modelAssetBytes:assets.totalBytes,imageSize:{width:canvas.width,height:canvas.height},milliseconds:elapsed,detectedPieces:output.items.map(({name,category,confidence,box})=>({name,category,modelScore:confidence,box})),photoIncluded:false};
+  lastReport={timestamp:new Date().toISOString(),userAgent:navigator.userAgent,secureContext:isSecureContext,runtime:runtimeCapabilities(),mode:'local-wasm-experimental',engine:assets.engine,modelAssetBytes:assets.totalBytes,imageSize:{width:canvas.width,height:canvas.height},milliseconds:elapsed,detectedPieces:output.items.map(({name,category,confidence,box})=>({name,category,modelScore:confidence,box})),photoIncluded:false};
   find('progress').textContent=output.items.length+' candidate pieces in '+(elapsed/1000).toFixed(1)+' seconds. Check every result against your photo.';find('export').hidden=false;
  }catch(error){const message=error.name==='AbortError'?'Recognition cancelled.':String(error.message).replace(/data:image\/[^\s]+/g,'[photo omitted]').slice(0,500);find('progress').textContent=message;lastReport={timestamp:new Date().toISOString(),userAgent:navigator.userAgent,secureContext:isSecureContext,mode:'local-wasm-experimental',completed:false,error:message,capabilities:{worker:typeof Worker!=='undefined',wasm:typeof WebAssembly!=='undefined',imageBitmap:typeof createImageBitmap!=='undefined'},photoIncluded:false};find('export').hidden=false;}
  finally{bitmap?.close();stopLocalRecognition();idle();}

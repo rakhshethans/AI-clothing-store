@@ -124,8 +124,11 @@ The new browser model matched 83/93 labelled garments on the original 30 photos
 (previously 61/93), and 90/99 on a separate reserved 30-photo slice. This is roughly
 89% / 91% recall, not a guarantee for arbitrary clothes or flat lays. Background
 clothes, missed pieces and incorrect categories remain possible. Warm desktop CPU
-inference is around 9 seconds, slower than the previous model. See
-operations/09-CLOTHING-RECOGNITION-UPGRADE.md for evidence and limitations.
+inference now takes about 4.3-4.5 seconds on capable isolated browsers using two
+local CPU threads, versus about 8.8 seconds previously. Other browsers keep the
+single-thread path. All 60 tested prediction arrays are unchanged. See
+operations/09-CLOTHING-RECOGNITION-UPGRADE.md and
+operations/10-RECOGNITION-PERFORMANCE.md for evidence and limitations.
 
 For a physical iPhone check without paid hosting, that document explains the
 optional local-Wi-Fi diagnostic at /phone-check.html. It processes a camera/photo

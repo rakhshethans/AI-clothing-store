@@ -11,6 +11,7 @@ const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8',
 const allowed=new Set(['example.com','example.org','example.net']);
 export async function handleRequest(req,res){
   const url=new URL(req.url,'http://localhost');
+  res.setHeader('Cross-Origin-Opener-Policy','same-origin');res.setHeader('Cross-Origin-Embedder-Policy','credentialless');
   res.setHeader('X-Content-Type-Options','nosniff');res.setHeader('Referrer-Policy','no-referrer');
   res.setHeader('Content-Security-Policy',"default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; worker-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' data:; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'");
   if(url.pathname==='/api/wardrobe/local-status'&&req.method==='GET'){res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify(await localRecognitionStatus()));return;}

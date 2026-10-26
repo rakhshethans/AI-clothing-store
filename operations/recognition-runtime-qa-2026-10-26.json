@@ -1,0 +1,125 @@
+{
+  "date": "2026-10-26",
+  "scope": "Runtime correctness and metadata independence, not an accuracy benchmark.",
+  "fixture": "One real public photograph and a generated uniform control. No expected detections supplied.",
+  "paidApiCalls": 0,
+  "parallel": {
+    "crossOriginIsolated": true,
+    "hardwareConcurrency": 16,
+    "equalPixels": true,
+    "equalDetections": true,
+    "detectedPieces": 3,
+    "blankPieces": 0,
+    "milliseconds": 11588,
+    "items": [
+      {
+        "name": "Top",
+        "category": "top",
+        "colour": "white",
+        "pattern": "solid",
+        "fit": "regular",
+        "formality": 1,
+        "warmth": 1,
+        "confidence": 0.6791596071717304,
+        "box": {
+          "x": 0.21946996450424194,
+          "y": 0.31999480724334717,
+          "width": 0.171319842338562,
+          "height": 0.6687484979629517
+        }
+      },
+      {
+        "name": "Outer layer",
+        "category": "layer",
+        "colour": "white",
+        "pattern": "solid",
+        "fit": "regular",
+        "formality": 1,
+        "warmth": 1,
+        "confidence": 0.3395247951123636,
+        "box": {
+          "x": 0.07899823784828186,
+          "y": 0.31686508655548096,
+          "width": 0.7283706665039062,
+          "height": 0.6729869842529297
+        }
+      },
+      {
+        "name": "Top",
+        "category": "top",
+        "colour": "white",
+        "pattern": "solid",
+        "fit": "regular",
+        "formality": 1,
+        "warmth": 1,
+        "confidence": 0.15732015196428428,
+        "box": {
+          "x": 0.2832825928926468,
+          "y": 0.32702669501304626,
+          "width": 0.11186805367469788,
+          "height": 0.1280142068862915
+        }
+      }
+    ],
+    "activeCancel": true,
+    "cancelledDuringLoading": true,
+    "queuedSurvivesCancel": true
+  },
+  "singleThreadFallback": {
+    "crossOriginIsolated": false,
+    "requestedWasmThreads": 1,
+    "items": [
+      {
+        "name": "Top",
+        "category": "top",
+        "colour": "white",
+        "pattern": "solid",
+        "fit": "regular",
+        "formality": 1,
+        "warmth": 1,
+        "confidence": 0.6791596071717304,
+        "box": {
+          "x": 0.21946996450424194,
+          "y": 0.31999480724334717,
+          "width": 0.171319842338562,
+          "height": 0.6687484979629517
+        }
+      },
+      {
+        "name": "Outer layer",
+        "category": "layer",
+        "colour": "white",
+        "pattern": "solid",
+        "fit": "regular",
+        "formality": 1,
+        "warmth": 1,
+        "confidence": 0.3395247951123636,
+        "box": {
+          "x": 0.07899823784828186,
+          "y": 0.31686508655548096,
+          "width": 0.7283706665039062,
+          "height": 0.6729869842529297
+        }
+      },
+      {
+        "name": "Top",
+        "category": "top",
+        "colour": "white",
+        "pattern": "solid",
+        "fit": "regular",
+        "formality": 1,
+        "warmth": 1,
+        "confidence": 0.15732015196428428,
+        "box": {
+          "x": 0.2832825928926468,
+          "y": 0.32702669501304626,
+          "width": 0.11186805367469788,
+          "height": 0.1280142068862915
+        }
+      }
+    ]
+  },
+  "requestsOutsideLocalGet": [],
+  "pageErrors": [],
+  "passed": true
+}
