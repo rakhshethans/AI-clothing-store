@@ -97,27 +97,35 @@ Run `node --use-system-ca scripts/setup-local-recognition.mjs` once, then
 upload a group photo and choose Identify clothes on this device. Review and edit
 all crops, categories and attributes before saving. Manual marking remains available.
 
-The optional setup downloads public Transformers.js 3.8.1 assets (verified against
-its published SHA-512 integrity) and a pinned quantised OWL-ViT model to ignored
-`public/local-recognition/`. Total runtime/model assets are about 173 MiB. No account,
-API key or paid inference is used. Setup uses HTTPS with normal certificate checks;
-Node system CA support can be needed on Windows. Local inference has no remote-model
-fallback. The old provider endpoint remains disabled even with credentials present.
+The setup downloads a pinned MIT-licensed clothing-specific Conditional DETR model,
+verifies its SHA-256 and the Transformers.js 3.8.1 runtime archive, and converts the
+weights locally to ONNX. It requires Python 3.11 or 3.12 for this one-time conversion.
+If an existing bundled Python is unavailable, set THREADLINE_PYTHON to your Python
+executable. The setup installs CPU-only conversion packages into ignored private-data
+when needed; it does not change global Python packages. Allow disk space and time
+for the optional package/model downloads. No account, API key or paid inference is
+used. Browser assets total about 134 MiB; original weights and conversion packages
+use additional local disk space. A repeated setup verifies/reuses complete assets.
 
-This is experimental: missed pieces, incorrect categories and duplicate shoe boxes
-are possible. Colour, pattern, fit, dress level and weight are editable defaults,
-not model measurements. The standalone HTML keeps manual import; recognition needs
-the local server and installed model assets. Large models are excluded from the
-normal service-worker precache and from Git. Missing assets leave manual import
-available. Closing import terminates the worker and releases its model resources.
-Actual phone performance and a representative real-photo accuracy study are pending.
+Photo inference runs entirely in a browser worker; no Python service or cloud call
+is used. The old provider endpoint stays blocked even if credentials are present.
+The standalone HTML keeps manual import. Missing or outdated model assets leave
+manual marking available; use the updated setup to upgrade an old OWL-ViT install.
+Closing import terminates the worker and releases its model resources.
+
+Recognition remains experimental. Broad categories cover tops, bottoms, layers,
+one-pieces, shoes, bags and hats. Other accessory types can need manual marking.
+Review every crop and category. Colour, pattern, fit, dress level and weight are
+editable defaults, not model measurements. Physical iPhone performance is unverified.
 
 ## Recognition testing and phone diagnostic
 
-The 30-photo real-image check found 61/93 labelled garments; the current model is
-still experimental and needs manual review. Background clothing and incorrect
-categories remain issues. See operations/08-REAL-PHOTO-TESTING.md for scoring,
-limitations and repeatable commands.
+The new browser model matched 83/93 labelled garments on the original 30 photos
+(previously 61/93), and 90/99 on a separate reserved 30-photo slice. This is roughly
+89% / 91% recall, not a guarantee for arbitrary clothes or flat lays. Background
+clothes, missed pieces and incorrect categories remain possible. Warm desktop CPU
+inference is around 9 seconds, slower than the previous model. See
+operations/09-CLOTHING-RECOGNITION-UPGRADE.md for evidence and limitations.
 
 For a physical iPhone check without paid hosting, that document explains the
 optional local-Wi-Fi diagnostic at /phone-check.html. It processes a camera/photo

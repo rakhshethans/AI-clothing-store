@@ -1,5 +1,6 @@
-import {pipeline,env,RawImage} from './local-recognition/transformers.min.js';
-import {localGarmentLabels,localGarmentDrafts} from './wardrobe-recognition-domain.js';
+import {PreTrainedModel,Tensor,env,RawImage} from './local-recognition/transformers.min.js';
+import {localRecognitionPolicy as policy} from './recognition-config.js';
+import {recognitionImageSize,garmentPredictions,localGarmentDrafts,hasImageDetail} from './wardrobe-recognition-domain.js';
 env.allowRemoteModels=false;
 env.allowLocalModels=true;
 env.localModelPath='/local-recognition/models/';
@@ -9,10 +10,15 @@ env.backends.onnx.wasm.proxy=false;
 let detector;
 self.onmessage=async({data})=>{
  try{
-  if(!detector){self.postMessage({type:'progress',message:'Loading the local model. The first run can take a little longer.'});detector=await pipeline('zero-shot-object-detection','Xenova/owlvit-base-patch32',{device:'wasm',dtype:'q8',local_files_only:true});}
+  const image=(await RawImage.read(data.image)).rgb();
+  if(!hasImageDetail(image.data,image.channels)){self.postMessage({type:'result',data:{items:[]}});return;}
+  if(!detector){self.postMessage({type:'progress',message:'Loading the clothing model on this device. The first run can take longer.'});detector=await PreTrainedModel.from_pretrained(policy.modelId,{device:'wasm',dtype:policy.dtype,local_files_only:true});}
   self.postMessage({type:'progress',message:'Finding visible clothes on this device.'});
-  const image=await RawImage.read(data.image);
-  const predictions=await detector(image,Object.keys(localGarmentLabels),{threshold:.1,top_k:60});
-  self.postMessage({type:'result',data:localGarmentDrafts(predictions,image.width,image.height)});
+  const size=recognitionImageSize(image.width,image.height);
+  const resized=await image.resize(size.width,size.height,{resample:2}),area=size.width*size.height;
+  const values=new Float32Array(3*area),mean=[.485,.456,.406],std=[.229,.224,.225];
+  for(let c=0;c<3;c++)for(let i=0;i<area;i++)values[c*area+i]=(resized.data[i*3+c]/255-mean[c])/std[c];
+  const output=await detector({pixel_values:new Tensor('float32',values,[1,3,size.height,size.width]),pixel_mask:new Tensor('int64',new BigInt64Array(area).fill(1n),[1,size.height,size.width])});
+  self.postMessage({type:'result',data:localGarmentDrafts(garmentPredictions(output,image.width,image.height),image.width,image.height)});
  }catch(error){self.postMessage({type:'error',message:'Local recognition could not finish. You can mark the pieces manually. '+error.message});}
 };

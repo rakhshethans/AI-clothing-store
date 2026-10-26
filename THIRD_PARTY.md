@@ -57,3 +57,17 @@ are used by the app. The full historical brief is retained in design.md for cont
 Archivo is requested from Google Fonts (weights 400–900), with the existing local Geist font as
 an offline fallback. The Tailwind CDN dependency and campaign-specific CSP permissions were removed.
 Earlier GSAP assets remain in the repository but are not executed.
+
+
+## Optional clothing recogniser (26 October 2026)
+
+The selected source weights are yainage90/fashion-object-detection, revision
+fb0a4ff27adfe56500ab4d36e2586436eb1d2979, published under MIT. The upstream MIT
+notice is preserved in scripts/licenses/fashion-detector-MIT.txt and copied beside
+installed model assets. Source: https://github.com/yainage90/fashion-visual-search.
+The source is a fine-tuned microsoft/conditional-detr-resnet-50 checkpoint; its base
+model card is https://huggingface.co/microsoft/conditional-detr-resnet-50.
+Transformers.js 3.8.1 runtime notices are copied from the verified upstream archive.
+PyTorch, Torchvision, timm, Transformers, ONNX and ONNX Runtime are optional local
+conversion tools installed separately, not included in the app source bundle.
+Model weights and all downloaded public evaluation photos are excluded from Git.

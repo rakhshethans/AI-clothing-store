@@ -147,3 +147,8 @@ file as manual-only. No new landing page, paid provider or cloud fallback.
 26 October: keep the optional phone-recognition diagnostic consistent with bone/ink,
 local font fallback, simple fields, touch-visible controls and full-colour crop
 previews. It is a QA page, not a new campaign or main navigation destination.
+
+26 October accuracy upgrade: retain the existing wardrobe/import layout and full-
+colour crops. The clothing model uses broad honest names; keep the warning that
+background clothes can appear and non-detected attributes require review. No new
+campaign, landing page, paid service or cloud fallback.

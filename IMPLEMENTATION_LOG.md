@@ -372,3 +372,43 @@ syntax checks pass. Mobile/desktop diagnostic screenshots were inspected. Touch-
 reflow has no horizontal overflow at 320/390/768/1440px. The copyable report includes
 no photo; cancellation works. Browser QA recorded zero POST requests and zero page
 errors. Physical iPhone testing is explicitly not marked complete.
+
+## Clothing-specific recognition — 26 October 2026
+
+Replaced the generic OWL-ViT worker with a pinned, MIT-licensed clothing-specific
+Conditional DETR checkpoint converted locally to ONNX. Browser-side sigmoid decoding
+preserves all seven classes; class-aware suppression preserves layered top/outer
+pieces; crop validation now retains small visible pieces with >=1% edges. Added a
+pure flat-colour input guard after the unguarded model hallucinated a garment on
+white. White/black/red controls now return no candidates without loading weights;
+all 60 real photo inputs pass the guard unchanged. No real-image prediction was
+edited. Defaults for colour/fit/pattern/warmth/formality remain explicitly editable.
+
+Actual WASM browser evaluation: 83/93 matches on the original development slice,
+up from 61/93; 90/99 matches on validation rows 30–59, reserved before tuning. Broad
+category and IoU >=0.5 scoring is unchanged. Unmatched detections fell from 137 to
+56 on the original set; some are real unannotated background clothes. Exact upstream
+training-split independence is unknown. These are worn-outfit images, not a physical
+phone or flat-lay validation. Warm desktop runs took about 8.8s, first runs 12.2s.
+
+Selected threshold 0.15 from development work before the reserved browser run. A
+YOLOS trial and mirrored second-pass/consensus trials did not offer a better recall/
+extra-detection tradeoff and are not shipped. The native Python model-selection
+checks are separate from the shipping browser measurements.
+
+Updated setup verifies the source safetensors and pinned runtime archive, uses
+private CPU-only conversion dependencies, and creates manifest v2 only on completion.
+Re-runs reuse verified assets. Old/incomplete assets leave manual import available.
+Python is required once for conversion, not during photo inference. All model/
+package/evaluation image files remain ignored. No paid service, deployment, provider
+credential or metered inference was used. Evidence and installation details are in
+operations/09-CLOTHING-RECOGNITION-UPGRADE.md and its four JSON QA reports.
+
+Final verification for this checkpoint: all 41 Node tests and source syntax checks
+pass; the standalone bundle is rebuilt. Actual import/edit/save/reload/cancel/manual
+fallback checks pass with zero photo-upload requests and zero page errors. Inspected
+the full-colour mobile crop preview; desktop/mobile widths 320/390/768/1440px have no
+horizontal overflow. Setup rerun verified and reused the installed artifact hashes.
+Uniform controls return zero candidates without any model-weight requests. Physical
+iPhone and realistic flat-lay performance remain unverified. Source publication
+skips remote CI and includes no downloaded weights, packages or evaluation photos.

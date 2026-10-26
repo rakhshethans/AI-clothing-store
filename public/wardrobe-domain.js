@@ -12,7 +12,7 @@ export function validateWardrobePiece(raw){
 export function validateGarmentBox(box){
  if(!box||!['x','y','width','height'].every(k=>Number.isFinite(box[k])))throw new Error('A garment crop is missing.');
  const {x,y,width,height}=box;
- if(x<0||y<0||width<0.03||height<0.03||x+width>1.001||y+height>1.001)throw new Error('Keep every crop inside the photo, with a visible area.');
+ if(x<0||y<0||width<0.01||height<0.01||x+width>1.001||y+height>1.001)throw new Error('Keep every crop inside the photo, with a visible area.');
  return {x,y,width:Math.min(width,1-x),height:Math.min(height,1-y)};
 }
 export function validateDetections(value){

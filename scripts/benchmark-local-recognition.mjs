@@ -2,9 +2,11 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {localRecognitionPolicy as policy} from '../public/recognition-config.js';
 import {evaluatePhoto,summariseRecognition} from './recognition-evaluation.mjs';
 const {chromium}=await import(process.env.THREADLINE_PLAYWRIGHT_MODULE||'playwright');
-const root=new URL('../',import.meta.url),data=new URL('private-data/recognition-benchmark/',root);
+const holdout=process.argv.includes('--holdout');
+const root=new URL('../',import.meta.url),data=new URL(holdout?'private-data/recognition-holdout/':'private-data/recognition-benchmark/',root);
 const manifest=JSON.parse(await fs.readFile(new URL('manifest.json',data),'utf8'));
 const launch={headless:true};if(process.env.THREADLINE_CHROME)launch.executablePath=process.env.THREADLINE_CHROME;
 const browser=await chromium.launch(launch);
@@ -14,7 +16,9 @@ context.on('request',r=>{if(r.method()!=='GET')postRequests.push({url:r.url(),me
 await context.route('**/*',route=>{const url=new URL(route.request().url());if(url.hostname==='127.0.0.1'||url.protocol==='data:')return route.continue();remoteAttempts.push(url.origin);return route.abort();});
 const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));
 const runDate=new Date().toISOString().slice(0,10);
+const tag=policy.engine+(holdout?'-validation':'-development');
 const rows=[],predictions=[];
+process.on('SIGINT',async()=>{await browser.close();process.exit(130);});
 const subjectCrop=process.argv.includes('--subject-crop');
 try{
  await page.goto('http://127.0.0.1:4187/#wardrobe');await page.waitForSelector('#wd-open-import');
@@ -33,17 +37,17 @@ try{
   const metrics=evaluatePhoto(expected,result.items);
   rows.push({id:photo.id,row:photo.row,milliseconds:Math.round(result.milliseconds),...metrics});predictions.push({id:photo.id,items:result.items});
   console.log(JSON.stringify({completed:rows.length,total:manifest.photos.length,id:photo.id,tp:metrics.truePositives,fp:metrics.falsePositives,fn:metrics.falseNegatives,milliseconds:Math.round(result.milliseconds)}));
-  await fs.writeFile(new URL(subjectCrop?'subject-crop-predictions.json':'predictions.json',data),JSON.stringify(predictions,null,2));
+  await fs.writeFile(new URL(tag+(subjectCrop?'-cropped':'')+'-predictions.json',data),JSON.stringify(predictions,null,2));
  }
  const blank=await page.evaluate(async()=>{const c=document.createElement('canvas');c.width=c.height=600;c.getContext('2d').fillStyle='white';c.getContext('2d').fillRect(0,0,600,600);return(await(await import('/wardrobe-recognition.js')).recogniseLocalPhoto(c.toDataURL('image/jpeg'))).items.length;});
  await page.evaluate(async()=>{(await import('/wardrobe-recognition.js')).stopLocalRecognition();});
  const warm=rows.slice(1).map(r=>r.milliseconds).sort((a,b)=>a-b);
  const report={date:runDate,dataset:manifest.dataset,revision:manifest.revision,selection:manifest.selection,scope:manifest.scope,preprocessing:subjectCrop?'Annotation-guided target-outfit crop with 3% margin. Diagnostic oracle crop, not automatic subject selection.':'Full original image, resized/re-encoded using the import policy.',
   environment:'Headless desktop Chrome, Windows, WASM CPU, viewport 390x844. This is NOT physical iPhone performance.',
-  policy:{confidenceThreshold:.1,nmsIoU:.65,matchIoU:.5,noTuningOnThisSample:true},summary:summariseRecognition(rows),
+  model:policy.sourceModel,sourceRevision:policy.revision,engine:policy.engine,sampleRole:holdout?'reserved validation':'development',policy:{confidenceThreshold:policy.threshold,nmsIoU:policy.nmsIoU,matchIoU:.5,minimumCropEdge:.01,noTuningOnThisSample:holdout},summary:summariseRecognition(rows),
   multiGarmentPhotos:summariseRecognition(rows.filter(r=>r.expected>=2)),coldMilliseconds:rows[0].milliseconds,warmMedianMilliseconds:warm[Math.floor(warm.length/2)],warmP95Milliseconds:warm[Math.ceil(warm.length*.95)-1],
   blankDetections:blank,modelAssetBytes:status.totalBytes,postRequests,pageErrors:errors,blockedExternalOrigins:[...new Set(remoteAttempts)],paidApiCalls:0,physicalIPhoneTested:false,
-  limitations:['Real worn-outfit images; flat-lay piles and user phone photos are untested.','Only supported garment categories scored. Dataset garment-part annotations are excluded.','Broad app categories scored, not fine-grained clothing subtypes.','Annotation/box differences can count as errors; raw fixtures remain private.','Dataset annotations focus on the main outfit. Some unmatched predictions are real spectator/background clothes, so precision is target-outfit agreement, not all-visible-clothing accuracy.','No calibrated confidence, colour/fit/weight accuracy, or human correction-time measurement.'],perPhoto:rows};
- await fs.writeFile(new URL(subjectCrop?'operations/recognition-real-photo-crop-qa-'+runDate+'.json':'operations/recognition-real-photo-qa-'+runDate+'.json',root),JSON.stringify(report,null,2)+'\n');
+  limitations:['Real worn-outfit images; flat-lay piles and user phone photos are untested.','The source model was trained with Fashionpedia; upstream split independence has not been audited. Reserved validation here means no tuning on these rows in this project.','Only supported garment categories scored. Dataset garment-part annotations are excluded.','Broad app categories scored, not fine-grained clothing subtypes.','Annotation/box differences can count as errors; raw fixtures remain private.','Dataset annotations focus on the main outfit. Some unmatched predictions are real spectator/background clothes, so precision is target-outfit agreement, not all-visible-clothing accuracy.','No calibrated confidence, colour/fit/weight accuracy, or human correction-time measurement.'],perPhoto:rows};
+ await fs.writeFile(new URL('operations/recognition-'+tag+(subjectCrop?'-cropped':'')+'-'+runDate+'.json',root),JSON.stringify(report,null,2)+'\n');
  console.log('SUMMARY '+JSON.stringify(report.summary));
 }finally{await browser.close();}

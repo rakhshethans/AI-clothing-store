@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-26",
+  "solidControls": [
+    {
+      "colour": "white",
+      "detections": 0
+    },
+    {
+      "colour": "black",
+      "detections": 0
+    },
+    {
+      "colour": "red",
+      "detections": 0
+    }
+  ],
+  "realPhotosChecked": 60,
+  "allRealPhotosPassed": true,
+  "modelWeightRequestsForSolidControls": 0,
+  "pageErrors": [],
+  "paidApiCalls": 0,
+  "explanation": "A pure pixel-detail check rejects flat-colour images before model loading. All 60 benchmark inputs pass unchanged, so their measured detection results remain applicable."
+}

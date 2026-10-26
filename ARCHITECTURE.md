@@ -101,3 +101,16 @@ preview to 0.0.0.0 for same-Wi-Fi device testing; without it the server still bi
 to 127.0.0.1. No photo-upload endpoint or paid fallback was added. The benchmark
 scripts keep dataset images and raw prediction artifacts under ignored private-data.
 See operations/08-REAL-PHOTO-TESTING.md for honest metrics and device-test limits.
+
+
+26 October accuracy update: public/recognition-config.js fixes the clothing checkpoint,
+score threshold and resize policy. The worker uses a locally converted Conditional DETR
+ONNX model through the generic PreTrainedModel wrapper, then decodes sigmoid logits
+and normalised boxes itself. Class-aware suppression keeps top/layer overlaps; minimum
+crop edges are 1%. A pure flat-colour guard returns no candidates before model loading.
+Setup verifies source/runtime hashes, installs optional CPU conversion tools into private-data
+and runs scripts/export-local-recognition.py once. Python is not a photo-inference backend.
+Ready manifest v2 includes the engine, source revision and per-file hashes/sizes; stale v1
+assets do not enable the new worker. Only fixed public asset paths are served. Browser
+inference stays local; provider inference remains disabled. Cache v11 covers small JS
+dependencies, not model weights. See operations/09-CLOTHING-RECOGNITION-UPGRADE.md.
